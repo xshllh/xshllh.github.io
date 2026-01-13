@@ -1389,7 +1389,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #fb4074;
+    background: #33bffe;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1723,7 +1723,6 @@ pre code {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  flex-direction: column;
 }
 .links-of-blogroll-item {
   max-width: 100%;
@@ -2213,8 +2212,9 @@ pre code {
   margin-top: 3px;
 }
 .posts-expand .post-meta-container .post-description {
-  font-size: 0.875em;
+  font-size: 1em;
   margin-top: 2px;
+  color: #fc6423;
 }
 .posts-expand .post-meta-container time {
   border-bottom: 1px dashed #999;

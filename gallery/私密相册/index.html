@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xshllh.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="记录生活足迹。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="私密相册">
+<meta property="og:url" content="https://xshllh.github.io/gallery/%E7%A7%81%E5%AF%86%E7%9B%B8%E5%86%8C/index.html">
+<meta property="og:site_name" content="大象的记事本">
+<meta property="og:description" content="记录生活足迹。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xshllh.github.io/gallery/%E7%A7%81%E5%AF%86%E7%9B%B8%E5%86%8C/$%7Bphoto.thumbnailUrl%7D">
+<meta property="article:published_time" content="2026-01-11T08:34:21.000Z">
+<meta property="article:modified_time" content="2026-01-12T15:20:57.286Z">
+<meta property="article:author" content="一衣带水">
+<meta property="article:tag" content="生活,技术,笔记,博客,Hexo,JavaScript,前端,编程,学习计算机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xshllh.github.io/gallery/%E7%A7%81%E5%AF%86%E7%9B%B8%E5%86%8C/$%7Bphoto.thumbnailUrl%7D">
+
+
+<link rel="canonical" href="https://xshllh.github.io/gallery/%E7%A7%81%E5%AF%86%E7%9B%B8%E5%86%8C/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"https://xshllh.github.io/gallery/%E7%A7%81%E5%AF%86%E7%9B%B8%E5%86%8C/index.html","path":"gallery/私密相册/index.html","title":"私密相册"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>私密相册 | 大象的记事本
+</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"forest"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
+<link rel="dns-prefetch" href="https://mywaline-delta.vercel.app">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">大象的记事本</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一切的开始是平静的，结局却是悲惨的。——《了不起的盖茨比》</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li><li class="menu-item menu-item-gallery"><a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>相册</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#passwordSection"><span class="nav-number">1.</span> <span class="nav-text">私密相册</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#passwordSection"><span class="nav-number">1.1.</span> <span class="nav-text">安全提示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#galleryContent"><span class="nav-number">2.</span> <span class="nav-text">🔐 我的私密相册</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#galleryContent"><span class="nav-number">2.1.</span> <span class="nav-text">
+                📁 照片分类
+            </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#imageTitle"><span class="nav-number">2.2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#passwordModal"><span class="nav-number">2.3.</span> <span class="nav-text">修改访问密码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="一衣带水"
+      src="/images/my.png">
+  <p class="site-author-name" itemprop="name">一衣带水</p>
+  <div class="site-description" itemprop="description">个人技术博客，记录学习笔记与生活点滴。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:xshllh@sohu.com" title="E-Mail → mailto:xshllh@sohu.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://xsh.netlify.app/" title="https:&#x2F;&#x2F;xsh.netlify.app" rel="noopener" target="_blank">相会</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://xshllh.github.io/" title="https:&#x2F;&#x2F;xshllh.github.io">首页</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">私密相册
+</h1>
+
+<div class="post-meta-container">
+    <div class="post-description">记录生活足迹。</div>
+  <ul class="breadcrumb">
+            <li><a href="/gallery/">相册</a></li>
+          <li>私密相册</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <!-- 密码保护区域 -->
+<div id="passwordSection" class="password-section">
+    <div class="password-container">
+        <div class="password-header">
+            <span class="lock-icon">🔒</span>
+            <h1>私密相册</h1>
+            <p class="password-subtitle">请输入密码访问加密相册</p>
+        </div>
+        <div class="password-input-group">
+            <input type="password" id="passwordInput" placeholder="请输入8位数字密码" class="password-input" autocomplete="off"
+                maxlength="8">
+            <button id="unlockBtn" class="unlock-btn">
+                <span>🔓</span> 解锁相册
+            </button>
+        </div>
+        <div class="password-hint">
+            <p>提示：密码是8位数字</p>
+            <p id="attemptCount" class="attempt-count">剩余尝试次数: 5</p>
+        </div>
+        <div id="message" class="message"></div>
+        <div class="security-notice">
+            <h4>安全提示</h4>
+            <p>• 此相册为加密相册，需要密码才能访问</p>
+            <p>• 连续5次密码错误将暂时锁定访问</p>
+            <p>• 请勿在公共设备上保存密码</p>
+        </div>
+    </div>
+</div>
+<!-- 相册内容区域 -->
+<div id="galleryContent" class="gallery-content">
+    <!-- 顶部导航栏 -->
+    <header class="gallery-header">
+        <div class="header-left">
+            <h1>🔐 我的私密相册</h1>
+            <p>加密照片，按分类安全存放</p>
+        </div>
+        <div class="header-controls">
+            <button id="lockBtn" class="control-btn lock-btn">
+                <span>🔒</span> 锁定相册
+            </button>
+            <button id="changePasswordBtn" class="control-btn change-password-btn">
+                <span>🔑</span> 修改密码
+            </button>
+        </div>
+    </header>
+    <!-- 主内容区域 -->
+    <div class="gallery-content-wrapper">
+        <!-- 分类侧边栏 -->
+        <div class="category-sidebar">
+            <h3 class="category-header">
+                <span>📁</span> 照片分类
+            </h3>
+            <ul class="category-list" id="categoryList">
+                <!-- 分类将由JavaScript动态生成 -->
+            </ul>
+        </div>
+        <!-- 照片网格 -->
+        <div class="gallery-main">
+            <div class="private-photo-grid" id="privatePhotoGrid">
+                <!-- 照片将由JavaScript动态加载 -->
+            </div>
+            <!-- 空状态 -->
+            <div id="emptyGallery" class="empty-gallery" style="display: none;">
+                <div class="empty-icon">🖼️</div>
+                <div class="empty-text">该分类暂无照片</div>
+            </div>
+        </div>
+        <!-- 图片预览模态框 -->
+        <div id="imageModal" class="image-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <img class="modal-image" id="modalImage" alt="">
+                <div class="image-info">
+                    <h3 id="imageTitle"></h3>
+                    <p id="imageDesc"></p>
+                    <p id="imageDate"></p>
+                    <p id="imageTags"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改密码模态框 -->
+<div id="passwordModal" class="password-modal">
+    <div class="password-modal-content">
+        <div class="password-modal-header">
+            <h3>修改访问密码</h3>
+            <div class="close-modal" id="closePasswordModal">&times;</div>
+        </div>
+        <div class="password-form">
+            <div class="form-group">
+                <label>旧密码：</label>
+                <input type="password" id="oldPassword" class="form-input" autocomplete="off" maxlength="6">
+            </div>
+            <div class="form-group">
+                <label>新密码（8位数字）：</label>
+                <input type="password" id="newPassword" class="form-input" autocomplete="off" maxlength="6">
+            </div>
+            <div class="form-group">
+                <label>确认新密码：</label>
+                <input type="password" id="confirmPassword" class="form-input" autocomplete="off" maxlength="6">
+            </div>
+            <div class="form-actions">
+                <button id="cancelChangeBtn" class="cancel-btn">取消</button>
+                <button id="confirmChangeBtn" class="confirm-btn">确认修改</button>
+            </div>
+            <div id="passwordMessage" class="message"></div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="Private.css">
+<script>
+    // 加密相册数据
+    // 加密相册功能
+    document.addEventListener('DOMContentLoaded', function () {
+        // 元素引用
+        const passwordSection = document.getElementById('passwordSection');
+        const galleryContent = document.getElementById('galleryContent');
+        const passwordInput = document.getElementById('passwordInput');
+        const unlockBtn = document.getElementById('unlockBtn');
+        const lockBtn = document.getElementById('lockBtn');
+        const changePasswordBtn = document.getElementById('changePasswordBtn');
+        const privatePhotoGrid = document.getElementById('privatePhotoGrid');
+        const messageDiv = document.getElementById('message');
+        const attemptCountDiv = document.getElementById('attemptCount');
+        const passwordModal = document.getElementById('passwordModal');
+        const closeModal = document.querySelector('.close-modal');
+        const cancelChangeBtn = document.getElementById('cancelChangeBtn');
+        const confirmChangeBtn = document.getElementById('confirmChangeBtn');
+        const passwordMessageDiv = document.getElementById('passwordMessage');
+        const categoryList = document.getElementById('categoryList');
+        const emptyGallery = document.getElementById('emptyGallery');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const imageTitle = document.getElementById('imageTitle');
+        const imageDesc = document.getElementById('imageDesc');
+        const imageDate = document.getElementById('imageDate');
+        const imageTags = document.getElementById('imageTags');
+        // 状态变量
+        let attemptCount = 5;
+        let isUnlocked = false;
+        let currentPassword = '190841813d4c7679a6e5bf185daf58327b32e8938627da648ca51d5fc4c2b34d'; // 默认密码
+        let currentCategory = 'all'; // 当前选中的分类
+        let allPhotos = []; // 所有照片数据
+        let filteredPhotos = []; // 筛选后的照片
+        //let privateGalleryData = {};
+        let privatedata = [];  //privateGalleryData.photos
+        let categories = [];   //privateGalleryData.categories
+        // 获取解密后的照片数据
+        function getDecryptedPhotos(password) {
+            if (password !== currentPassword) {
+                return null
+            }
+            // 返回所有照片数据
+            return privatedata;
+        }
+        // 显示消息
+        function showMessage(text, type) {
+            messageDiv.textContent = text;
+            messageDiv.className = `message ${type}`;
+            messageDiv.style.display = 'block';
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 3000);
+        }
+        // 显示密码消息 
+        function showPasswordMessage(text, type) {
+            passwordMessageDiv.textContent = text;
+            passwordMessageDiv.className = `message ${type}`;
+            passwordMessageDiv.style.display = 'block';
+        }
+        // 更新尝试次数显示
+        function updateAttemptCount() {
+            attemptCountDiv.textContent = `剩余尝试次数: ${attemptCount}`;
+        }
+        // 定义一个异步函数来生成 SHA-256 哈希
+        async function generateSHA256Hash(message) {
+            // 1. 将字符串消息编码为 Uint8Array (字节流)
+            const msgBuffer = new TextEncoder().encode(message);
+            // 2. 使用 crypto.subtle.digest 方法计算哈希值，返回一个 ArrayBuffer
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            // 3. 将 ArrayBuffer 转换为 Uint8Array
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            // 4. 将每个字节转换为十六进制字符串，并拼接成完整的哈希值
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+        //load private.json
+        async function loadGalleryData() {
+            try {
+                const response = await fetch('Privatedata.json');
+                if (!response.ok) {
+                    throw new Error('无法加载相册数据');
+                }
+                privatedata = await response.json();
+                const response1 = await fetch('categories.json');
+                if (!response1.ok) {
+                    throw new Error('无法加载相册数据');
+                }
+                categories = await response1.json();
+            } catch (error) {
+                console.error('加载失败:', error);
+            }
+        }
+        // 解锁相册
+        async function unlockGallery() {
+            let password = passwordInput.value.trim();
+            let shapassword = await generateSHA256Hash(password);
+            if (!password) {
+                showMessage('请输入密码', 'error');
+                return;
+            }
+            if (password.length !== 8 || !/^\d+$/.test(password)) {
+                showMessage('密码必须是8位数字', 'error');
+                passwordInput.value = '';
+                return;
+            }
+            if (shapassword === currentPassword) {
+                // 密码正确
+                await loadGalleryData();
+                isUnlocked = true;
+                const photos = getDecryptedPhotos(shapassword);
+                if (photos) {
+                    // 保存照片数据
+                    allPhotos = photos;
+                    filteredPhotos = [...allPhotos];
+                    // 显示相册内容
+                    passwordSection.style.display = 'none';
+                    galleryContent.style.display = 'block';
+                    // 生成分类列表
+                    generateCategoryList();
+                    // 渲染照片
+                    renderPrivatePhotos(filteredPhotos);
+                    setupEventListeners();
+                    // 重置尝试次数
+                    attemptCount = 5;
+                    updateAttemptCount();
+                    passwordInput.value = '';
+                    showMessage('解锁成功！欢迎访问私密相册。', 'success');
+                } else {
+                    showMessage('数据解密失败', 'error');
+                }
+            } else {
+                // 密码错误
+                attemptCount--;
+                updateAttemptCount();
+                if (attemptCount <= 0) {
+                    unlockBtn.disabled = true;
+                    passwordInput.disabled = true;
+                    showMessage('尝试次数过多，请稍后再试', 'error');
+                } else {
+                    showMessage(`密码错误，剩余${attemptCount}次尝试机会`, 'error');
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+            }
+        }
+        // 锁定相册
+        function lockGallery() {
+            isUnlocked = false;
+            passwordSection.style.display = 'flex';
+            galleryContent.style.display = 'none';
+            passwordInput.value = '';
+            passwordInput.focus();
+            showMessage('相册已锁定', 'success');
+        }
+        // 生成分类列表
+        function generateCategoryList() {
+            categoryList.innerHTML = '';
+            // 计算每个分类的照片数量
+            const categoryCounts = {};
+            allPhotos.forEach(photo => {
+                categoryCounts[photo.category] = (categoryCounts[photo.category] || 0) + 1;
+            });
+            // 添加"全部照片"分类
+            const allCount = allPhotos.length;
+            const allCategory = categories.find(c => c.id === 'all');
+            if (allCategory) {
+                allCategory.count = allCount;
+            }
+            // 更新其他分类的数量
+            categories.forEach(category => {
+                if (category.id !== 'all') {
+                    category.count = categoryCounts[category.id] || 0;
+                }
+            });
+            // 生成分类列表项
+            categories.forEach(category => {
+                if (category.count === 0 && category.id !== 'all') {
+                    return; // 跳过没有照片的分类
+                }
+                const listItem = document.createElement('li');
+                listItem.className = 'category-item';
+                if (category.id === currentCategory) {
+                    listItem.classList.add('active');
+                }
+                // 设置分类颜色
+                if (category.color) {
+                    listItem.style.borderLeft = `3px solid ${category.color}`;
+                }
+                listItem.innerHTML = `
+                    <div style="display: flex; align-items: center;">
+                        <div class="category-color" style="background: ${category.color || '#667eea'};"></div>
+                        <span>${category.name}</span>
+                    </div>
+                    <span class="category-count">${category.count}</span>
+                `;
+                // 添加点击事件
+                listItem.addEventListener('click', () => {
+                    // 移除其他分类的active类
+                    document.querySelectorAll('.category-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    // 添加当前分类的active类
+                    listItem.classList.add('active');
+                    // 筛选照片
+                    filterPhotosByCategory(category.id);
+                });
+                categoryList.appendChild(listItem);
+            });
+        }
+        // 按分类筛选照片
+        function filterPhotosByCategory(categoryId) {
+            currentCategory = categoryId;
+            if (categoryId === 'all') {
+                filteredPhotos = [...allPhotos];
+            } else {
+                filteredPhotos = allPhotos.filter(photo => photo.category === categoryId);
+            }
+            // 重新渲染照片
+            renderPrivatePhotos(filteredPhotos);
+            // 显示/隐藏空状态
+            if (filteredPhotos.length === 0) {
+                emptyGallery.style.display = 'block';
+            } else {
+                emptyGallery.style.display = 'none';
+            }
+        }
+        // 渲染私密照片
+        function renderPrivatePhotos(photos) {
+            privatePhotoGrid.innerHTML = '';
+            photos.forEach(photo => {
+                const photoItem = document.createElement('div');
+                photoItem.className = 'private-photo-item';
+                photoItem.innerHTML = `
+                    <img 
+                        src="${photo.thumbnailUrl}" 
+                        alt="${photo.title}"
+                        data-full="${photo.imageUrl}"
+                        loading="lazy"
+                        class="photo-thumbnail"
+                    >
+                    <div class="photo-info-card">
+                        <h4>${photo.title}</h4>
+                        <p>${photo.description}</p>
+                        <p><small>拍摄日期: ${photo.date}</small></p>
+                        <div class="photo-tags">
+                            ${photo.tags.map(tag => `<span class="photo-tag">${tag}</span>`).join('')}
+                        </div> 
+                    </div>
+                `;
+                // 添加点击查看大图事件 
+                photoItem.querySelector('img').addEventListener('click', () => {
+                    openImageModal(photo);
+                });
+                privatePhotoGrid.appendChild(photoItem);
+            });
+        }
+        // 打开图片预览模态框
+        function openImageModal(photo) {
+            modalImage.src = photo.imageUrl;
+            modalImage.alt = photo.title;
+            imageTitle.textContent = photo.title;
+            imageDesc.textContent = photo.description;
+            imageDate.textContent = `拍摄日期: ${photo.date}`;
+            imageTags.textContent = `标签: ${photo.tags.join(', ')}`;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        // 关闭图片预览模态框
+        function closeImageModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        // 设置事件监听器
+        function setupEventListeners() {
+            // 模态框关闭事件
+            closeModal.addEventListener('click', closeImageModal);
+            // 点击模态框背景关闭
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeImageModal();
+                }
+            });
+            // ESC键关闭模态框
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeImageModal();
+                }
+            });
+        }
+        // 修改密码 
+        function changePassword() {
+            const oldPassword = document.getElementById('oldPassword').value.trim();
+            const newPassword = document.getElementById('newPassword').value.trim();
+            const confirmPassword = document.getElementById('confirmPassword').value.trim();
+            // 验证输入
+            if (!oldPassword || !newPassword || !confirmPassword) {
+                showPasswordMessage('请填写所有字段', 'error');
+                return;
+            }
+            if (oldPassword !== currentPassword) {
+                showPasswordMessage('旧密码错误', 'error');
+                return;
+            }
+            if (newPassword.length !== 6 || !/^\d+$/.test(newPassword)) {
+                showPasswordMessage('新密码必须是8位数字', 'error');
+                return;
+            }
+            if (newPassword !== confirmPassword) {
+                showPasswordMessage('两次输入的新密码不一致', 'error');
+                return;
+            }
+            if (newPassword === oldPassword) {
+                showPasswordMessage('新密码不能与旧密码相同', 'error');
+                return;
+            }
+            // 更新密码
+            currentPassword = newPassword;
+            showPasswordMessage('密码修改成功！', 'success');
+            // 清除输入框
+            document.getElementById('oldPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+            // 2秒后关闭模态框
+            setTimeout(() => {
+                passwordModal.style.display = 'none';
+            }, 2000);
+        }
+        // 事件监听器
+        unlockBtn.addEventListener('click', unlockGallery);
+        passwordInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                unlockGallery();
+            }
+        });
+        lockBtn.addEventListener('click', lockGallery);
+        changePasswordBtn.addEventListener('click', function () {
+            passwordModal.style.display = 'block';
+        });
+        closeModal.addEventListener('click', function () {
+            passwordModal.style.display = 'none';
+        });
+        cancelChangeBtn.addEventListener('click', function () {
+            passwordModal.style.display = 'none';
+        });
+        confirmChangeBtn.addEventListener('click', changePassword);
+        // 点击模态框外部关闭
+        window.addEventListener('click', function (e) {
+            if (e.target === passwordModal) {
+                passwordModal.style.display = 'none';
+            }
+        });
+        // 输入框限制只能输入数字
+        document.getElementById('newPassword').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, '');
+        });
+        document.getElementById('confirmPassword').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, '');
+        });
+        // 初始化
+        updateAttemptCount();
+        passwordInput.focus();
+        // 自动填充密码输入框（仅用于演示）
+        setTimeout(() => {
+            passwordInput.value = '';
+        }, 1000);
+    });
+</script>
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/gallery/">相册</a></li>
+          <li>私密相册</li>
+  </ul>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">一衣带水</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">2k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">7 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <script type="text/javascript" src='https://unpkg.com/mermaid@9.0.0/dist/mermaid.min.js'></script>
+  <script>
+  if (window.mermaid) {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: '[object Object]',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+  }
+  </script>
+  
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://mywaline-delta.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀~","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":true,"comment_count":true,"dark":"auto","el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/gallery/%E7%A7%81%E5%AF%86%E7%9B%B8%E5%86%8C/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
