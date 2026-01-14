@@ -8,39 +8,29 @@
 <blockquote>
 <p><a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95">基本语法</a></p>
 <ul class="lvl-1">
-<li class="lvl-2"><a href="#%E6%A0%87%E9%A2%98">标题</a></li>
-<li class="lvl-2"><a href="#%E6%AE%B5%E8%90%BD">段落</a></li>
-<li class="lvl-2"><a href="#%E6%8D%A2%E8%A1%8C">换行</a></li>
-<li class="lvl-2"><a href="#%E5%BC%BA%E8%B0%83">强调</a></li>
-<li class="lvl-2"><a href="#%E5%BC%95%E7%94%A8%E5%9D%97">引用块</a></li>
-<li class="lvl-2"><a href="#%E5%88%97%E8%A1%A8">列表</a></li>
-<li class="lvl-2"><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
-<li class="lvl-2"><a href="#%E5%88%86%E9%9A%94%E7%BA%BF">分隔线</a></li>
-<li class="lvl-2"><a href="#%E9%93%BE%E6%8E%A5">链接</a></li>
-<li class="lvl-2"><a href="#%E5%9B%BE%E7%89%87">图片</a></li>
-<li class="lvl-2"><a href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6">转义字符</a></li>
-<li class="lvl-2"><a href="#%E5%86%85%E5%B5%8C-html-%E6%A0%87%E7%AD%BE">内嵌 HTML 标签</a><a href="#%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95">扩展语法</a></li>
-<li class="lvl-2"><a href="#%E8%A1%A8%E6%A0%BC">表格</a></li>
-<li class="lvl-2"><a href="#%E5%9B%B4%E6%A0%8F%E4%BB%A3%E7%A0%81%E5%9D%97">围栏代码块</a></li>
-<li class="lvl-2"><a href="#%E8%84%9A%E6%B3%A8">脚注</a></li>
-<li class="lvl-2"><a href="#%E6%A0%87%E9%A2%98%E7%BC%96%E5%8F%B7">标题编号</a></li>
-<li class="lvl-2"><a href="#%E5%88%A0%E9%99%A4%E7%BA%BF">删除线</a></li>
-<li class="lvl-2"><a href="#%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8">任务列表</a></li>
-<li class="lvl-2"><a href="#emoji-%E8%A1%A8%E6%83%85">Emoji 表情</a><a href="#%E8%AF%AD%E6%B3%95%E5%8F%98%E9%80%9A">语法变通</a></li>
-<li class="lvl-2"><a href="#%E4%B8%8B%E6%A0%87%E4%B8%8A%E6%A0%87">下标上标</a></li>
-<li class="lvl-2"><a href="#%E4%B8%8B%E5%88%92%E7%BA%BF">下划线</a></li>
-<li class="lvl-2"><a href="#tab-%E7%BC%A9%E8%BF%9B">tab 缩进</a></li>
-<li class="lvl-2"><a href="#markdown-%E6%96%87%E5%AD%97%E5%B1%85%E4%B8%AD">Markdown 文字居中</a></li>
-<li class="lvl-2"><a href="#%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2">文字颜色</a></li>
-<li class="lvl-2"><a href="#%E6%B3%A8%E9%87%8A">注释</a></li>
-<li class="lvl-2"><a href="#%E8%B0%83%E6%95%B4%E5%9B%BE%E7%89%87%E5%A4%A7%E5%B0%8F">调整图片大小</a></li>
-<li class="lvl-2"><a href="#%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6">特殊字符</a><a href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE">思维导图</a></li>
-<li class="lvl-2"><a href="#%E6%B5%81%E7%A8%8B%E5%9B%BE">流程图</a></li>
-<li class="lvl-2"><a href="#%E6%97%B6%E5%BA%8F%E5%9B%BE">时序图</a></li>
-<li class="lvl-2"><a href="#%E7%94%98%E7%89%B9%E5%9B%BE">甘特图</a></li>
-<li class="lvl-2"><a href="#%E9%A5%BC%E5%9B%BE">饼图</a></li>
-<li class="lvl-2"><a href="#%E7%B1%BB%E5%9B%BE">类图</a></li>
+<li class="lvl-2"><a href="#%E6%A0%87%E9%A2%98">标题</a>⇾• <a href="#%E6%AE%B5%E8%90%BD">段落</a>⇾• <a href="#%E6%8D%A2%E8%A1%8C">换行</a>⇾• <a href="#%E5%BC%BA%E8%B0%83">强调</a>⇾• <a href="#%E5%BC%95%E7%94%A8%E5%9D%97">引用块</a>⇾• <a href="#%E5%88%97%E8%A1%A8">列表</a>⇾• <a href="#%E4%BB%A3%E7%A0%81">代码</a>⇾• <a href="#%E5%88%86%E9%9A%94%E7%BA%BF">分隔线</a>⇾• <a href="#%E9%93%BE%E6%8E%A5">链接</a>⇾• <a href="#%E5%9B%BE%E7%89%87">图片</a>⇾• <a href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6">转义字符</a>⇾• <a href="#%E5%86%85%E5%B5%8C-html-%E6%A0%87%E7%AD%BE">内嵌 HTML 标签</a></li>
 </ul>
+</blockquote>
+<blockquote>
+<p><a href="#%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95">扩展语法</a></p>
+<ul class="lvl-1">
+<li class="lvl-2"><a href="#%E8%A1%A8%E6%A0%BC">表格</a>⇾• <a href="#%E5%9B%B4%E6%A0%8F%E4%BB%A3%E7%A0%81%E5%9D%97">围栏代码块</a>⇾• <a href="#%E8%84%9A%E6%B3%A8">脚注</a>⇾• <a href="#%E6%A0%87%E9%A2%98%E7%BC%96%E5%8F%B7">标题编号</a>⇾• <a href="#%E5%88%A0%E9%99%A4%E7%BA%BF">删除线</a>⇾• <a href="#%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8">任务列表</a>⇾• <a href="#emoji-%E8%A1%A8%E6%83%85">Emoji 表情</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><a href="#%E8%AF%AD%E6%B3%95%E5%8F%98%E9%80%9A">语法变通</a></p>
+<ul class="lvl-1">
+<li class="lvl-2"><a href="#%E4%B8%8B%E6%A0%87%E4%B8%8A%E6%A0%87">下标上标</a>⇾• <a href="#%E4%B8%8B%E5%88%92%E7%BA%BF">下划线</a>⇾• <a href="#tab-%E7%BC%A9%E8%BF%9B">tab 缩进</a>⇾• <a href="#markdown-%E6%96%87%E5%AD%97%E5%B1%85%E4%B8%AD">Markdown 文字居中</a>⇾• <a href="#%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2">文字颜色</a>⇾• <a href="#%E6%B3%A8%E9%87%8A">注释</a>⇾• <a href="#%E8%B0%83%E6%95%B4%E5%9B%BE%E7%89%87%E5%A4%A7%E5%B0%8F">调整图片大小</a>⇾• <a href="#%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6">特殊字符</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><a href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE">思维导图</a></p>
+<ul class="lvl-1">
+<li class="lvl-2"><a href="#%E6%B5%81%E7%A8%8B%E5%9B%BE">流程图</a>⇾• <a href="#%E6%97%B6%E5%BA%8F%E5%9B%BE">时序图</a>⇾• <a href="#%E7%94%98%E7%89%B9%E5%9B%BE">甘特图</a>⇾• <a href="#%E9%A5%BC%E5%9B%BE">饼图</a>⇾• <a href="#%E7%B1%BB%E5%9B%BE">类图</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><a href="#%E5%8C%96%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F">化学数学公式</a></p>
 </blockquote>
 <hr>
 <h2 id="基本语法">基本语法</h2>
@@ -98,7 +88,11 @@
 <li class="lvl-2">第二项
 1. 要在保留列表连续性的同时在列表中添加另一种元素，请将该元素缩进四个空格或一个制表符.
 2. 代码块通常采用四个空格或一个制表符缩进。当它们被放在列表中时，请将它们缩进八个空格或两个制表符.</li>
-<li class="lvl-2">第三项</li>
+<li class="lvl-2">第三项
+<ul class="lvl-3">
+<li class="lvl-4">二级<code>tab</code></li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <hr>
@@ -442,14 +436,11 @@ K<sup>1</sub></p>
 <p>A ~~~ B 看不见</p>
 </li>
 </ul>
-<pre class="mermaid">---
-title: node
----
-flowchart LR
+<pre class="mermaid">flowchart LR
     A[开始] --> B{条件判断}
     B -->|Yes| C[执行操作A]
     B -->|No| D[执行操作B]
-    C --> E@{shape: cloud,lable: "e"}
+    C --> E[结束]
     D --> E</pre>
 <hr>
 <h3 id="时序图：">时序图：</h3>
@@ -524,8 +515,6 @@ pie
     "项目B" : 50
     "项目C" : 20</pre>
 <hr>
-<h3 id="类图">类图</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">classDiagram</span><br><span class="line">    class Person &#123;</span><br><span class="line">        +String name</span><br><span class="line">        +int age</span><br><span class="line">        +void eat(String food)</span><br><span class="line">        +void sleep(int hours)</span><br><span class="line">    &#125;</span><br><span class="line">    class Student &#123;</span><br><span class="line">        +String school</span><br><span class="line">        +void study()</span><br><span class="line">    &#125;</span><br><span class="line">    class Teacher &#123;</span><br><span class="line">        +String subject</span><br><span class="line">        +void teach()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Person &lt;|-- Student</span><br><span class="line">    Person &lt;|-- Teacher</span><br></pre></td></tr></table></figure>
 <h2 id="化学数学公式">化学数学公式</h2>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right" columnspacing=""><mtr><mtd class ="mtr-glue"></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mn>3</mn><mi>C</mi><mi>a</mi><mi>O</mi><mo>+</mo><mi>F</mi><msub><mi>e</mi><mn>2</mn></msub><msub><mi>O</mi><mn>3</mn></msub><mo><mover><mo><mo>=</mo><mo>=</mo></mo><mtext>高温</mtext></mover></mo><mn>2</mn><mi>F</mi><mi>e</mi><mo>+</mo><mn>3</mn><mi>C</mi><msub><mi>O</mi><mn>2</mn></msub></mrow></mstyle></mtd><mtd class ="mtr-glue"></mtd><mtd class ="mml-eqn-num"></mtd></mtr><mtr><mtd class ="mtr-glue"></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>x</mi><mo>=</mo><mfrac><mrow><mo>−</mo><mi>b</mi><mo>±</mo><msqrt><mrow><msup><mi>b</mi><mn>2</mn></msup><mo>−</mo><mn>4</mn><mi>a</mi><mi>c</mi></mrow></msqrt></mrow><mrow><mn>2</mn><mi>a</mi></mrow></mfrac></mrow></mstyle></mtd><mtd class ="mtr-glue"></mtd><mtd class ="mml-eqn-num"></mtd></mtr><mtr><mtd class ="mtr-glue"></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msubsup><mo>∫</mo><mrow><mo>−</mo><mi mathvariant="normal">∞</mi></mrow><mi mathvariant="normal">∞</mi></msubsup><msup><mi>e</mi><mrow><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></msup><mi>d</mi><mi>x</mi></mrow></mstyle></mtd><mtd class ="mtr-glue"></mtd><mtd class ="mml-eqn-num"></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 3Ca O +Fe_2O_3\stackrel{高温}{==}2 Fe + 3 CO_2\\
@@ -563,6 +552,32 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
+    <title>情人节的礼物</title>
+    <url>/2026/01/13/qingjie314/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被校验，不过您还是能看看解密后的内容。">
+  <script id="hbeData" type="hbeData" data-hmacdigest="966546dc5897e25e474aba9a31647d493f7072f2c510b4c0f0e32d04178f5c85">c2bdc0abc1039c0ca979316f9fff5fc5a2de84e70f4e1f398eb0fa7f482eed7cec979381b1405cb88a62112984645479ddba501ccd3ec9030e1878fb6a18b839df1e689bf4bc235ce80b6cdd979e31b1cc057a7260ca0346b8d1ea11b455de5546ba27e48713fa1453337e78db0798ed18cda17d5bf67beeb097bc16e6eeafc7c4c9c4322b31c4004837ee242f25e105a9b47c94d0682e1ef9431bb1b91f18cfba0d153d9fd303a28c98b51aaeffbd2e4c51e0f3af6fbd5d401265fea50102c097b63561fb3a97fa77b7d6922cb2e42179dd7a400e5b9213aab22209716d9b143a7a609bb8eba848262e3fcaaa376ddc284837909a0d5e0564a2eb890b1693fed630a54ee2af891f5feae1c187da53417826de32c84561fb7b2af8eed74e7c6e6b8a6f441315554a75d723736d4159e709036330c8b6415d4c0435190badadd37f290b16e2df0effa64051b1c1a154f3195b582deb7af45cb09ed6378b49976c2412750051a69f4abe7595f9e26c3983c52fbb214c62d04563fc3bed936f7ce671dd9911caa4471ba5ef00da43a6fff6d06b8e49f1ca6ad54d8c58adeaecdeb7ac612508368b49d89bdaa3e96aa808c2131338ec5f744ac7b76cbab6512cd83e03903915b0402d590b2e146c5afdc773d44573ea2ef656dab8eb6402bf5f013ab920d6c796cc862389bce8703e39ebd2ca36757a9e557cab8cda37cef58003d20eee3c88d30e1ab597b5c54a40d496e3b44c3b95cf8e77c78f338df28c105c22a15fc621fb2cc0fe87dac09b9a9bdd7e5f98c7317e01c8a9094acd2ee88b0a4a57262650dbd0d5b932147c75a86064e514269ac92144de012c8b7189731521ef5b0c4ddff69d500586063703098c1238edd36f32a1c1944d9c1e44c7310c92c73ce214f7879b6b4a9c55d52ef38d7333e718db77488ac3367ac30aaabc658f0915cfbf9a9130dcb56609d05b3c1cc0c69c6bcdcce7b71aed0991731d846df2eb6b183711014e2ca72135184660df448023544d1cc1fb229e86d94ec85311cc696e044057f4f6a067ba890fdb1bcc7c0d699b108618cb6faa79dd91767364415d078e7068c6ad7ffc3ce9dc69ca04f6ef81f6ddac2172bc208ae00723ae2ea483634c28e55a43e01e4b18b1bb40ed6b79b5077a897deb2b5e5e3d55e92a964964fc882fcd0fb3f57761d07935c5e60f6499a8be1f16987b5d55045a09318ac6b40c991b7488df428323b3c8071914461f704d7c4e598a14ebf64e49adfc4c0e22411c6488eed422ac6bc6f6ffb77b65012a9e48405d73c71af1a5f7d30bcd1509ae1830e46f4e3e84cdd37a126086954efb85769e6ee047f41fd483484d5878241d11019a91f9bd7898a1c21e5fd62e34deb78896e818667ec425abddd2d6b995e979f4c77052f5e8465dd340ba1245b76394f7888cc17553051e32b8401f068616a2d492e95fda54d1c3b79aa4f9dd0124fc9bca0a55f16075cfdf752f6e96eeb8b1f15556dfe3024bda7c2cea522f65f3448474bdc70a29280361aac5d882ac653b4d53dec758f7656a4f8570d89082c39f08364eae92adfe527cdb012591089ff290d9b4b3ae8edc0007c1dd07a43914da391bc08a9dd2b359d33e444a8001844e300857886e09d54ef01310aa13e8</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>照片墙</category>
+      </categories>
+      <tags>
+        <tag>甜蜜</tag>
+        <tag>情人节</tag>
+        <tag>礼物</tag>
+        <tag>照片</tag>
+        <tag>照片墙</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo 加密方法</title>
     <url>/2026/01/08/private/</url>
     <content><![CDATA[<h1>在标签中添加</h1>
@@ -596,32 +611,6 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
       <tags>
         <tag>随笔</tag>
         <tag>小兰</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>情人节的礼物</title>
-    <url>/2026/01/13/qingjie314/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被校验，不过您还是能看看解密后的内容。">
-  <script id="hbeData" type="hbeData" data-hmacdigest="966546dc5897e25e474aba9a31647d493f7072f2c510b4c0f0e32d04178f5c85">c2bdc0abc1039c0ca979316f9fff5fc5a2de84e70f4e1f398eb0fa7f482eed7cec979381b1405cb88a62112984645479ddba501ccd3ec9030e1878fb6a18b839df1e689bf4bc235ce80b6cdd979e31b1cc057a7260ca0346b8d1ea11b455de5546ba27e48713fa1453337e78db0798ed18cda17d5bf67beeb097bc16e6eeafc7c4c9c4322b31c4004837ee242f25e105a9b47c94d0682e1ef9431bb1b91f18cfba0d153d9fd303a28c98b51aaeffbd2e4c51e0f3af6fbd5d401265fea50102c097b63561fb3a97fa77b7d6922cb2e42179dd7a400e5b9213aab22209716d9b143a7a609bb8eba848262e3fcaaa376ddc284837909a0d5e0564a2eb890b1693fed630a54ee2af891f5feae1c187da53417826de32c84561fb7b2af8eed74e7c6e6b8a6f441315554a75d723736d4159e709036330c8b6415d4c0435190badadd37f290b16e2df0effa64051b1c1a154f3195b582deb7af45cb09ed6378b49976c2412750051a69f4abe7595f9e26c3983c52fbb214c62d04563fc3bed936f7ce671dd9911caa4471ba5ef00da43a6fff6d06b8e49f1ca6ad54d8c58adeaecdeb7ac612508368b49d89bdaa3e96aa808c2131338ec5f744ac7b76cbab6512cd83e03903915b0402d590b2e146c5afdc773d44573ea2ef656dab8eb6402bf5f013ab920d6c796cc862389bce8703e39ebd2ca36757a9e557cab8cda37cef58003d20eee3c88d30e1ab597b5c54a40d496e3b44c3b95cf8e77c78f338df28c105c22a15fc621fb2cc0fe87dac09b9a9bdd7e5f98c7317e01c8a9094acd2ee88b0a4a57262650dbd0d5b932147c75a86064e514269ac92144de012c8b7189731521ef5b0c4ddff69d500586063703098c1238edd36f32a1c1944d9c1e44c7310c92c73ce214f7879b6b4a9c55d52ef38d7333e718db77488ac3367ac30aaabc658f0915cfbf9a9130dcb56609d05b3c1cc0c69c6bcdcce7b71aed0991731d846df2eb6b183711014e2ca72135184660df448023544d1cc1fb229e86d94ec85311cc696e044057f4f6a067ba890fdb1bcc7c0d699b108618cb6faa79dd91767364415d078e7068c6ad7ffc3ce9dc69ca04f6ef81f6ddac2172bc208ae00723ae2ea483634c28e55a43e01e4b18b1bb40ed6b79b5077a897deb2b5e5e3d55e92a964964fc882fcd0fb3f57761d07935c5e60f6499a8be1f16987b5d55045a09318ac6b40c991b7488df428323b3c8071914461f704d7c4e598a14ebf64e49adfc4c0e22411c6488eed422ac6bc6f6ffb77b65012a9e48405d73c71af1a5f7d30bcd1509ae1830e46f4e3e84cdd37a126086954efb85769e6ee047f41fd483484d5878241d11019a91f9bd7898a1c21e5fd62e34deb78896e818667ec425abddd2d6b995e979f4c77052f5e8465dd340ba1245b76394f7888cc17553051e32b8401f068616a2d492e95fda54d1c3b79aa4f9dd0124fc9bca0a55f16075cfdf752f6e96eeb8b1f15556dfe3024bda7c2cea522f65f3448474bdc70a29280361aac5d882ac653b4d53dec758f7656a4f8570d89082c39f08364eae92adfe527cdb012591089ff290d9b4b3ae8edc0007c1dd07a43914da391bc08a9dd2b359d33e444a8001844e300857886e09d54ef01310aa13e8</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>照片墙</category>
-      </categories>
-      <tags>
-        <tag>甜蜜</tag>
-        <tag>情人节</tag>
-        <tag>礼物</tag>
-        <tag>照片</tag>
-        <tag>照片墙</tag>
       </tags>
   </entry>
 </search>
