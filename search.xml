@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo 加密方法</title>
-    <url>/2026/01/08/private/</url>
-    <content><![CDATA[<h1>在标签中添加</h1>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 内部技术分享</span><br><span class="line">password: tech123</span><br><span class="line">abstract: 这是一篇内部技术文档，需授权查看。</span><br><span class="line">message: 请输入访问密钥：</span><br><span class="line">wrong_pass_message: 密钥错误，访问被拒绝。</span><br><span class="line">theme: xray # 为此文章单独使用 xray 主题</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>加密</category>
-      </categories>
-      <tags>
-        <tag>mermaid</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>markdown</title>
     <url>/2026/01/08/markdown/</url>
     <content><![CDATA[<h1><center>markdown语法全集</center></h1>
@@ -576,10 +564,22 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
+    <title>hexo 加密方法</title>
+    <url>/2026/01/08/private/</url>
+    <content><![CDATA[<h1>在标签中添加</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 内部技术分享</span><br><span class="line">password: tech123</span><br><span class="line">abstract: 这是一篇内部技术文档，需授权查看。</span><br><span class="line">message: 请输入访问密钥：</span><br><span class="line">wrong_pass_message: 密钥错误，访问被拒绝。</span><br><span class="line">theme: xray # 为此文章单独使用 xray 主题</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>加密</category>
+      </categories>
+      <tags>
+        <tag>mermaid</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>情人节的礼物</title>
     <url>/2026/01/13/qingjie314/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被校验，不过您还是能看看解密后的内容。">
-  <script id="hbeData" type="hbeData" data-hmacdigest="918ff96f4d433b3322465c9e426a5280b83a7fbacc547431aeafb7f988910ac4">c2bdc0abc1039c0ca979316f9fff5fc5a2de84e70f4e1f398eb0fa7f482eed7cec979381b1405cb88a62112984645479ddba501ccd3ec9030e1878fb6a18b839df1e689bf4bc235ce80b6cdd979e31b1cc057a7260ca0346b8d1ea11b455de5546ba27e48713fa1453337e78db0798ed18cda17d5bf67beeb097bc16e6eeafc7c4c9c4322b31c4004837ee242f25e105cff458549847f6b1700a3eddcd5ece01618896bb92a3796eb013f29f3a53e8877c32ac738fc97dfe2496574018890597f845aa7903a9a6e09a93817fdba77f314998e332862937f9c4824648d2173c83f1e1709dcecd05a81e05ca1bdca5d7905cec0f3729ddf02173e48ff0e6dab130255442ad10eb1cf19ac60022d3fb028a3b528cc82791a460877789d74262324d84e39c68c7ab0d61cd9c35d4ea3802865a3d4b75a70c68e138735edab206ac55d5e242f3ebc3cb57f7871a9c4ca506bc5d9198df23de9c484180756611ce9599c2d4332b6b2f45334578a1b1a1dfaae636da344b5a9711fb65aebd27d944fb22c91c2f25fa9423de4e8680f363454125073b58692ee5f21ab0e474649347d114cfb2fb407086beff5be7aeb2e88cb21d342d601ba2d2b8f605d66abf075fdb77b9d750923d73af4c8a1f7d831d65663e7f25d1aa537b5f3b590986517a3835dc4a6b276b046a545c5f95260e9d45ef2d92e236a876c88aed2483eb057b052fc51a99d3775c0e09a67fef715cf613a16230a0ee1cfd69e0c54df9cea942fd8e046b366bbae73d8d3b19ca6e03a5642c17337b560ba3e6c7d191765d5ca8c94f05bda6a54d338118bdd1fb86726027c9a6e44e983ab1012e653fffc3139c8389315c4128ee30f1413fab870962af43c2e05c27be6fcd417d2fdede3552dc2a6f5d5060a0a7c39de4f95999957b8ba40287907ca333620756f51fa408e9a81c045ca638bba0b57f2e96359ac93f600f1a5160a367bea82d609aba2d1d7ee28e4be5438b2bd90e566a0ec132812c034f119aa75987945284522b0292f0556b7acc3ad2ee9625f0d0db0f16c16591402c73a0a3996559b7259e27df9a1547b15d32878290714b1db9d8c6ea380cd9aef49439be11b7168bfff195cdafbf27cc6e192132652dddf81300e2687639ea0af8cad31949ed784dfa2251c208acbec98ab56ae7d1f25c0d1b148929394fd28c73fe4bd4e18bd8a338e4fd6d9da1d08296da3c498ebdc84fe85ae70403e0b12476422cbe6c037a780c5f7d946c2e214cbc6eee50a1095d71669787f7eaf52ae738913d8f69514340594354833b2b2f6f219a3e703bce4c96cf8564fcec46a020775ba3cdce7a2d8b65c1f1838ee6f254dfccd894969a117bd07f24151bf37ec51bfd6c15e61452f7bf395b8241776294b94091b5323d640569e12093030bf18ca501e6080b280c6b92f13747848e4d9bb4c1f914eb4096b9bec15ef2ee392c3db8f329451e9820296242b52962cbc544ab89cd5e9d54d8a9073d2d3b56abac356bd870166840f4124aa3b79603ca3b8233d8f84f03119042c470a9ef259a7afb116152a114288f20279010626ebe41ef513ada3aaa73b141e56ba7a4d8d5518b657b83925b2de3c9ae926015e847b086999fba32549e02c1de98e779e2bdeadd92a8130aabb1cb4646f4eaeb61698d38d499d3f565a2c25a22450067f478ee4d884c95</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="966546dc5897e25e474aba9a31647d493f7072f2c510b4c0f0e32d04178f5c85">c2bdc0abc1039c0ca979316f9fff5fc5a2de84e70f4e1f398eb0fa7f482eed7cec979381b1405cb88a62112984645479ddba501ccd3ec9030e1878fb6a18b839df1e689bf4bc235ce80b6cdd979e31b1cc057a7260ca0346b8d1ea11b455de5546ba27e48713fa1453337e78db0798ed18cda17d5bf67beeb097bc16e6eeafc7c4c9c4322b31c4004837ee242f25e105a9b47c94d0682e1ef9431bb1b91f18cfba0d153d9fd303a28c98b51aaeffbd2e4c51e0f3af6fbd5d401265fea50102c097b63561fb3a97fa77b7d6922cb2e42179dd7a400e5b9213aab22209716d9b143a7a609bb8eba848262e3fcaaa376ddc284837909a0d5e0564a2eb890b1693fed630a54ee2af891f5feae1c187da53417826de32c84561fb7b2af8eed74e7c6e6b8a6f441315554a75d723736d4159e709036330c8b6415d4c0435190badadd37f290b16e2df0effa64051b1c1a154f3195b582deb7af45cb09ed6378b49976c2412750051a69f4abe7595f9e26c3983c52fbb214c62d04563fc3bed936f7ce671dd9911caa4471ba5ef00da43a6fff6d06b8e49f1ca6ad54d8c58adeaecdeb7ac612508368b49d89bdaa3e96aa808c2131338ec5f744ac7b76cbab6512cd83e03903915b0402d590b2e146c5afdc773d44573ea2ef656dab8eb6402bf5f013ab920d6c796cc862389bce8703e39ebd2ca36757a9e557cab8cda37cef58003d20eee3c88d30e1ab597b5c54a40d496e3b44c3b95cf8e77c78f338df28c105c22a15fc621fb2cc0fe87dac09b9a9bdd7e5f98c7317e01c8a9094acd2ee88b0a4a57262650dbd0d5b932147c75a86064e514269ac92144de012c8b7189731521ef5b0c4ddff69d500586063703098c1238edd36f32a1c1944d9c1e44c7310c92c73ce214f7879b6b4a9c55d52ef38d7333e718db77488ac3367ac30aaabc658f0915cfbf9a9130dcb56609d05b3c1cc0c69c6bcdcce7b71aed0991731d846df2eb6b183711014e2ca72135184660df448023544d1cc1fb229e86d94ec85311cc696e044057f4f6a067ba890fdb1bcc7c0d699b108618cb6faa79dd91767364415d078e7068c6ad7ffc3ce9dc69ca04f6ef81f6ddac2172bc208ae00723ae2ea483634c28e55a43e01e4b18b1bb40ed6b79b5077a897deb2b5e5e3d55e92a964964fc882fcd0fb3f57761d07935c5e60f6499a8be1f16987b5d55045a09318ac6b40c991b7488df428323b3c8071914461f704d7c4e598a14ebf64e49adfc4c0e22411c6488eed422ac6bc6f6ffb77b65012a9e48405d73c71af1a5f7d30bcd1509ae1830e46f4e3e84cdd37a126086954efb85769e6ee047f41fd483484d5878241d11019a91f9bd7898a1c21e5fd62e34deb78896e818667ec425abddd2d6b995e979f4c77052f5e8465dd340ba1245b76394f7888cc17553051e32b8401f068616a2d492e95fda54d1c3b79aa4f9dd0124fc9bca0a55f16075cfdf752f6e96eeb8b1f15556dfe3024bda7c2cea522f65f3448474bdc70a29280361aac5d882ac653b4d53dec758f7656a4f8570d89082c39f08364eae92adfe527cdb012591089ff290d9b4b3ae8edc0007c1dd07a43914da391bc08a9dd2b359d33e444a8001844e300857886e09d54ef01310aa13e8</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -599,6 +599,33 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
         <tag>礼物</tag>
         <tag>照片</tag>
         <tag>照片墙</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小兰随笔</title>
+    <url>/2026/01/14/%E5%B0%8F%E5%85%B0%E9%9A%8F%E7%AC%94/</url>
+    <content><![CDATA[<h2 id="随笔1">随笔1</h2>
+<h2 id="笔迹"><img src="/photos/xlsb1.jpg" alt="笔迹" title="小兰真迹"></h2>
+<h2 id="随笔2">随笔2</h2>
+<h2 id="笔迹-2"><img src="/photos/xlsb2.jpg" alt="笔迹" title="小兰真迹"></h2>
+<h2 id="随笔3">随笔3</h2>
+<p><img src="/photos/xlsb3.jpg" alt="笔迹" title="小兰真迹"></p>
+<h2 id="随笔4">随笔4</h2>
+<p><img src="/photos/xlsb4.jpg" alt="笔迹" title="小兰真迹"></p>
+<h2 id="随笔5">随笔5</h2>
+<p><img src="/photos/xlsb5.jpg" alt="笔迹" title="小兰真迹"></p>
+<h2 id="随笔6">随笔6</h2>
+<p><img src="/photos/xlsb6.jpg" alt="笔迹" title="小兰真迹"></p>
+<h2 id="随笔7">随笔7</h2>
+<p><img src="/photos/xlsb7.jpg" alt="笔迹" title="小兰真迹"></p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+        <category>小兰</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>小兰</tag>
       </tags>
   </entry>
 </search>

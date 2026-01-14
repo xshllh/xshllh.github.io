@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xshllh.github.io/gallery/$%7Bphoto.thumbnail%7D">
 <meta property="article:published_time" content="2026-01-11T08:34:21.000Z">
-<meta property="article:modified_time" content="2026-01-13T11:58:29.447Z">
+<meta property="article:modified_time" content="2026-01-14T04:15:01.689Z">
 <meta property="article:author" content="一衣带水">
 <meta property="article:tag" content="图库">
 <meta property="article:tag" content="照片">
@@ -190,18 +190,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -263,11 +263,11 @@
   <div class="gallery-container">
     <!-- 图片筛选器 -->
     <div class="gallery-filter">
-      <button class="filter-btn active" data-filter="all">全部</button>
-      <button class="filter-btn" data-filter="自然">自然</button>
-      <button class="filter-btn" data-filter="城市">城市</button>
-      <button class="filter-btn" data-filter="人物">人物</button>
-      <button class="filter-btn" data-filter="美食">美食</button>
+      <button class="filter-btn active allbtn" data-filter="all">全部</button>
+      <button class="filter-btn allbtn" data-filter="自然">自然</button>
+      <button class="filter-btn allbtn" data-filter="城市">城市</button>
+      <button class="filter-btn allbtn" data-filter="人物">人物</button>
+      <button class="filter-btn allbtn" data-filter="美食">美食</button>
       <button class="to-btn" id="tosubbtn">私密相册</button>
     </div>
     <div class="gallery-filter">
@@ -367,15 +367,14 @@
       restRows.innerHTML = '';
 
       const btn = document.createElement('button');
-      btn.className = 'album-btn';
-      btn.dataset.filter = "all";
+      btn.className = 'album-btn allbtn active';
+      btn.dataset.filter = "alldata";
       btn.textContent = `全部`;
       btn.onclick = () => filterPhotos("all", 2);
       firstRow.appendChild(btn);
-      btn.classList.add('active');
       folders.forEach((folder, index) => {
         const btn = document.createElement('button');
-        btn.className = 'album-btn';
+        btn.className = 'album-btn allbtn';
         btn.dataset.filter = folder;
         btn.textContent = `${folder} (${albumsByFolder[folder].photos.length}张)`;
         btn.onclick = () => filterPhotos(folder, 2);
@@ -474,7 +473,7 @@
     function filterPhotos(category, flg) {
       currentFilter = category;
       currentPhotos = allPhotos.filter(photo => {
-        const matchesFilter = category === 'all' ||
+        const matchesFilter = category === 'all' || category === 'alldata' ||
           (flg === 1 ? photo.category === category : photo.folder === category);
         const matchesSearch = currentSearch === '' ||
           photo.title.toLowerCase().includes(currentSearch) ||
@@ -487,16 +486,14 @@
       renderPhotos(currentPhotos.slice(0, displayedCount));
 
       // 更新筛选按钮状态
-      if (flg == 2) document.querySelectorAll('.album-btn').forEach(btn => {
+      document.querySelectorAll('.allbtn').forEach(btn => {
         if (btn.dataset.filter === category) btn.classList.add('active');
-        else btn.classList.remove('active');
-      });
-      if (flg == 1) filterButtons.forEach(btn => {
-        if (btn.dataset.filter === category) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
+        else btn.classList.remove('active'); 
+        if(flg==1){
+          if (btn.dataset.filter === 'alldata') btn.classList.add('active');
+        }  else {
+          if (btn.dataset.filter === 'all') btn.classList.add('active');
+        }  
       });
     }
 
