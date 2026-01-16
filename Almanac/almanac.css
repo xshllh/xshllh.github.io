@@ -1,224 +1,424 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-}
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', Arial, sans-serif;
+            
+            min-height: 100vh;
+            padding: 20px;
+            /* 移动端优化 */
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+        }
 
-.header {
-    background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
-    color: white;
-    text-align: center;
-    padding: 30px;
-}
+        /* 移动端触控优化 */
+        @media (hover: none) and (pointer: coarse) {
+            .tab,
+            .btn,
+            input,
+            select {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
 
-.header h1 {
-    font-size: 32px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
 
-.tabs {
-    display: flex;
-    background: #f5f5f5;
-    border-bottom: 2px solid #ddd;
-}
+        .header {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
 
-.tab {
-    flex: 1;
-    padding: 15px;
-    text-align: center;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    color: #666;
-    transition: all 0.3s;
-    border: none;
-    background: none;
-}
+        .header h1 {
+            font-size: 32px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-.tab:hover {
-    background: #e0e0e0;
-}
+        .tabs {
+            display: flex;
+            background: #f5f5f5;
+            border-bottom: 2px solid #ddd;
+        }
 
-.tab.active {
-    background: white;
-    color: #daa520;
-    border-bottom: 3px solid #daa520;
-}
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            color: #666;
+            transition: all 0.3s;
+            border: none;
+            background: none;
+        }
 
-.tab-content {
-    display: none;
-    padding: 30px;
-}
+        .tab:hover {
+            background: #e0e0e0;
+        }
 
-.tab-content.active {
-    display: block;
-}
+        .tab.active {
+            background: white;
+            color: #daa520;
+            border-bottom: 3px solid #daa520;
+        }
 
-.date-picker {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
 
-.date-picker label {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-}
+        .tab-content.active {
+            display: block;
+        }
 
-.date-picker input {
-    padding: 10px 15px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: inherit;
-}
+        .date-picker {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
 
-.date-picker input:focus {
-    outline: none;
-    border-color: #daa520;
-}
+        .date-picker label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
 
-.btn {
-    padding: 10px 25px;
-    background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-}
+        .date-picker input {
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: inherit;
+        }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(218, 165, 32, 0.4);
-}
+        .date-picker {
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: inherit;
+            background: white;
+            cursor: pointer;
+        }
 
-.almanac-info {
-    background: #fff8dc;
-    border: 2px solid #daa520;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-}
+        .date-picker input:focus,
+        .date-picker select:focus {
+            outline: none;
+            border-color: #daa520;
+        }
 
-.info-row {
-    display: flex;
-    padding: 12px 15px;
-    border-bottom: 1px solid #e0d4a0;
-}
+        /* 移动端选择器优化 */
+        @media (max-width: 768px) {
+            .date-picker input[type="date"] {
+                font-size: 16px; /* 防止iOS缩放 */
+            }
 
-.info-row:last-child {
-    border-bottom: none;
-}
+            .date-picker select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4l1-1 4 4zm5 0l4-5-1-1-4 4z'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 10px center;
+                padding-right: 30px;
+            }
+        }
 
-.info-row:nth-child(even) {
-    background: #faf0e6;
-}
+        .btn {
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
 
-.info-label {
-    font-weight: bold;
-    width: 120px;
-    flex-shrink: 0;
-    color: #666;
-}
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(218, 165, 32, 0.4);
+        }
 
-.info-value {
-    flex: 1;
-    color: #333;
-}
+        .almanac-info {
+            background: #fff8dc;
+            border: 2px solid #daa520;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
 
-.info-value.yi {
-    color: #006400;
-    font-weight: bold;
-}
+        .info-row {
+            display: flex;
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0d4a0;
+        }
 
-.info-value.ji {
-    color: #8b0000;
-    font-weight: bold;
-}
+        .info-row:last-child {
+            border-bottom: none;
+        }
 
-.info-value.jishen {
-    color: #006400;
-}
+        .info-row:nth-child(even) {
+            background: #faf0e6;
+        }
 
-.info-value.xiongshen {
-    color: #8b0000;
-}
+        .info-label {
+            font-weight: bold;
+            width: 120px;
+            flex-shrink: 0;
+            color: #666;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+        .info-value {
+            flex: 1;
+            color: #333;
+        }
 
-th {
-    background: linear-gradient(135deg, #4682b4 0%, #5a9bc4 100%);
-    color: white;
-    padding: 12px;
-    text-align: left;
-    font-weight: bold;
-}
+        .info-value.yi {
+            color: #006400;
+            font-weight: bold;
+        }
 
-td  {
-    padding: 10px;
-    border-bottom: 1px solid #666;
+        .info-value.ji {
+            color: #8b0000;
+            font-weight: bold;
+        }
+
+        .info-value.jishen {
+            color: #006400;
+        }
+
+        .info-value.xiongshen {
+            color: #8b0000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* 移动端表格容器样式 */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .table-wrapper::after {
+            content: '→';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .table-wrapper {
+                margin: 10px -5px;
+            }
+
+            .table-wrapper::after {
+                display: block;
+            }
+        }
+
+        th {
+            background: linear-gradient(135deg, #4682b4 0%, #5a9bc4 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            /* 固定表头 */
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        td {
+            padding: 10px;
+              border-bottom: 1px solid #666;
     background: #ddd;
     color: #000;
 }
+        
 
-tr:hover td {
-    background: #f5f5f5;
-}
+        tr:hover td {
+            background: #f5f5f5;
+        }
 
-.lucky {
-    color: #ff0000;
-    font-weight: bold;
-}
+        /* 移动端禁用hover效果 */
+        @media (hover: none) {
+            tr:hover td {
+                background: transparent;
+            }
+        }
 
-.unlucky {
-    color: #030303;
-    font-weight: bold;
-}
+        .lucky {
+            color: #ff0000;
+            font-weight: bold;
+        }
 
-@media (max-width: 768px) {
-    .header h1 {
-        font-size: 24px;
-    }
+        .unlucky {
+            color: #808080;
+        }
 
-    .tab {
-        padding: 10px;
-        font-size: 14px;
-    }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
 
-    .info-row {
-        flex-direction: column;
-    }
+            .container {
+                border-radius: 10px;
+            }
 
-    .info-label {
-        width: 100%;
-        margin-bottom: 5px;
-    }
+            .header h1 {
+                font-size: 24px;
+            }
 
-    table {
-        font-size: 12px;
-    }
+            .header {
+                padding: 20px 15px;
+            }
 
-    th,
-    td {
-        padding: 8px 5px;
-    }
-}
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .tab {
+                padding: 12px 8px;
+                font-size: 14px;
+                flex: 1 0 33%;
+                min-width: 80px;
+            }
+
+            .tab-content {
+                padding: 15px 10px;
+            }
+
+            .date-picker {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+
+            .date-picker label {
+                font-size: 14px;
+            }
+
+            .date-picker input,
+            .date-picker select,
+            .date-picker button {
+                width: 100%;
+                font-size: 14px;
+                padding: 12px 10px;
+            }
+
+            .btn {
+                padding: 12px;
+                margin-top: 5px;
+            }
+
+            .info-row {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .info-label {
+                width: 100%;
+                margin-bottom: 5px;
+                font-size: 14px;
+            }
+
+            .info-value {
+                font-size: 13px;
+            }
+
+            table {
+                font-size: 11px;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            th, td {
+                padding: 8px 5px;
+                white-space: nowrap;
+            }
+
+            /* 为移动端优化的表格容器 */
+            .almanac-info {
+                font-size: 13px;
+            }
+
+            /* 隐藏表格的次要列以节省空间 */
+            th:nth-child(4), td:nth-child(4),
+            th:nth-child(5), td:nth-child(5),
+            th:nth-child(9), td:nth-child(9) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .tab {
+                padding: 10px 5px;
+                font-size: 13px;
+                flex: 1 0 50%;
+            }
+
+            .info-row {
+                padding: 8px 5px;
+            }
+
+            .info-label {
+                font-size: 13px;
+            }
+
+            .info-value {
+                font-size: 12px;
+            }
+
+            table {
+                font-size: 10px;
+            }
+
+            th, td {
+                padding: 6px 3px;
+            }
+
+            /* 在小屏幕上隐藏更多列 */
+            th:nth-child(6), td:nth-child(6),
+            th:nth-child(7), td:nth-child(7) {
+                display: none;
+            }
+        }
