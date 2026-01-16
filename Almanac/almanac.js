@@ -710,15 +710,29 @@
         }
 
         // UI 函数
-        function showTab(tabId) {
+        function showTab(tabId, event) {
             const tabs = document.querySelectorAll('.tab');
             const contents = document.querySelectorAll('.tab-content');
 
             tabs.forEach(tab => tab.classList.remove('active'));
             contents.forEach(content => content.classList.remove('active'));
 
-            event.target.classList.add('active');
+            // 找到对应的tab按钮
+            const targetTab = Array.from(tabs).find(tab =>
+                tab.getAttribute('onclick') && tab.getAttribute('onclick').includes(`'${tabId}'`)
+            );
+
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+
             document.getElementById(tabId).classList.add('active');
+
+            // 阻止事件冒泡
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
         }
 
         function updateAlmanac() {
@@ -920,24 +934,6 @@
 
         // 页面加载完成后初始化
         window.onload = function() {
-            // 检测是否为移动设备
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            const isSmallScreen = window.innerWidth <= 768;
-
-            if (isMobile || isSmallScreen) {
-                // 移动端优化
-                document.body.style.fontSize = '14px';
-                
-                // 为表格添加滚动提示
-                const tables = document.querySelectorAll('table');
-                tables.forEach(table => {
-                    const wrapper = document.createElement('div');
-                    wrapper.style.overflowX = 'auto';
-                    wrapper.style.webkitOverflowScrolling = 'touch';
-                    table.parentNode.insertBefore(wrapper, table);
-                    wrapper.appendChild(table);
-                });
-            }
-
             init();
         };
+   

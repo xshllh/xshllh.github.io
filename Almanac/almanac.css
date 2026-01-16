@@ -1,17 +1,16 @@
- * {
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Microsoft YaHei', 'SimHei', Arial, sans-serif;
-            
-            min-height: 100vh;
-            padding: 20px;
+
             /* 移动端优化 */
             -webkit-tap-highlight-color: transparent;
             -webkit-touch-callout: none;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* 移动端触控优化 */
@@ -26,11 +25,11 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             overflow: hidden;
         }
 
@@ -38,32 +37,37 @@
             background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
             color: white;
             text-align: center;
-            padding: 30px;
+            padding: 20px 15px;
         }
 
         .header h1 {
-            font-size: 32px;
+            font-size: 22px;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin: 0;
         }
 
         .tabs {
             display: flex;
             background: #f5f5f5;
             border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .tab {
             flex: 1;
-            padding: 15px;
+            min-width: 80px;
+            padding: 12px 8px;
             text-align: center;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             color: #666;
             transition: all 0.3s;
             border: none;
             background: none;
+            white-space: nowrap;
         }
 
         .tab:hover {
@@ -78,7 +82,7 @@
 
         .tab-content {
             display: none;
-            padding: 30px;
+            padding: 15px;
         }
 
         .tab-content.active {
@@ -89,33 +93,37 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
         }
 
         .date-picker label {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             color: #333;
+            white-space: nowrap;
         }
 
         .date-picker input {
             padding: 10px 15px;
             border: 2px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 16px;
             font-family: inherit;
+            min-width: 200px;
         }
 
-        .date-picker {
+        .date-picker select {
             padding: 10px 15px;
             border: 2px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 16px;
             font-family: inherit;
-            background: white;
             cursor: pointer;
+            min-width: 100px;
         }
+
+        
 
         .date-picker input:focus,
         .date-picker select:focus {
@@ -123,29 +131,26 @@
             border-color: #daa520;
         }
 
-        /* 移动端选择器优化 */
-        @media (max-width: 768px) {
-            .date-picker input[type="date"] {
-                font-size: 16px; /* 防止iOS缩放 */
-            }
+        .date-picker input[type="date"] {
+            font-size: 16px; /* 防止iOS缩放 */
+        }
 
-            .date-picker select {
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4l1-1 4 4zm5 0l4-5-1-1-4 4z'/%3E%3C/svg%3E");
-                background-repeat: no-repeat;
-                background-position: right 10px center;
-                padding-right: 30px;
-            }
+        .date-picker select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4l1-1 4 4zm5 0l4-5-1-1-4 4z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 10px;
         }
 
         .btn {
-            padding: 10px 25px;
+            padding: 5px 30px;
             background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
@@ -157,12 +162,16 @@
             box-shadow: 0 5px 15px rgba(218, 165, 32, 0.4);
         }
 
+        .btn:active {
+            transform: translateY(0);
+        }
+
         .almanac-info {
             background: #fff8dc;
             border: 2px solid #daa520;
             border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
+            padding: 15px;
+            margin-top: 15px;
         }
 
         .info-row {
@@ -177,6 +186,7 @@
 
         .info-row:nth-child(even) {
             background: #faf0e6;
+            border-radius: 5px;
         }
 
         .info-label {
@@ -184,11 +194,14 @@
             width: 120px;
             flex-shrink: 0;
             color: #666;
+            font-size: 14px;
         }
 
         .info-value {
             flex: 1;
             color: #333;
+            font-size: 15px;
+            line-height: 1.4;
         }
 
         .info-value.yi {
@@ -212,19 +225,22 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 15px;
             background: white;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 13px;
         }
 
         /* 移动端表格容器样式 */
         .table-wrapper {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            border-radius: 10px;
+            border-radius: 8px;
             position: relative;
+            margin-top: 15px;
+            -webkit-overflow-scrolling: touch;
         }
 
         .table-wrapper::after {
@@ -238,37 +254,31 @@
             padding: 5px 10px;
             border-radius: 5px;
             display: none;
-        }
-
-        @media (max-width: 768px) {
-            .table-wrapper {
-                margin: 10px -5px;
-            }
-
-            .table-wrapper::after {
-                display: block;
-            }
+            font-size: 12px;
         }
 
         th {
             background: linear-gradient(135deg, #4682b4 0%, #5a9bc4 100%);
             color: white;
-            padding: 12px;
+            padding: 10px 8px;
             text-align: left;
             font-weight: bold;
-            /* 固定表头 */
+            font-size: 12px;
+            white-space: nowrap;
             position: sticky;
             top: 0;
             z-index: 10;
         }
 
         td {
-            padding: 10px;
-              border-bottom: 1px solid #666;
-    background: #ddd;
-    color: #000;
-}
-        
+            padding: 8px;
+            border-bottom: 1px solid #666;
+            font-size: 13px;
+            white-space: nowrap;
+            background-color: #ffffff;
+            color: black;
+            
+        }
 
         tr:hover td {
             background: #f5f5f5;
@@ -291,108 +301,39 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                border-radius: 10px;
-            }
-
-            .header h1 {
-                font-size: 24px;
-            }
-
-            .header {
-                padding: 20px 15px;
-            }
-
-            .tabs {
-                flex-wrap: wrap;
-            }
-
-            .tab {
-                padding: 12px 8px;
-                font-size: 14px;
-                flex: 1 0 33%;
-                min-width: 80px;
-            }
-
-            .tab-content {
-                padding: 15px 10px;
-            }
-
             .date-picker {
                 flex-direction: column;
                 align-items: stretch;
-                gap: 10px;
-            }
-
-            .date-picker label {
-                font-size: 14px;
             }
 
             .date-picker input,
             .date-picker select,
-            .date-picker button {
-                width: 100%;
-                font-size: 14px;
-                padding: 12px 10px;
-            }
-
             .btn {
-                padding: 12px;
-                margin-top: 5px;
+                width: 100%;
+                min-width: auto;
             }
 
             .info-row {
                 flex-direction: column;
-                padding: 10px;
             }
 
             .info-label {
-                width: 100%;
-                margin-bottom: 5px;
-                font-size: 14px;
-            }
-
-            .info-value {
-                font-size: 13px;
+                margin-bottom: 4px;
             }
 
             table {
-                font-size: 11px;
-                display: block;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            th, td {
-                padding: 8px 5px;
-                white-space: nowrap;
-            }
-
-            /* 为移动端优化的表格容器 */
-            .almanac-info {
-                font-size: 13px;
-            }
-
-            /* 隐藏表格的次要列以节省空间 */
-            th:nth-child(4), td:nth-child(4),
-            th:nth-child(5), td:nth-child(5),
-            th:nth-child(9), td:nth-child(9) {
-                display: none;
+                font-size: 12px;
             }
         }
 
         @media (max-width: 480px) {
             .header h1 {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .tab {
                 padding: 10px 5px;
-                font-size: 13px;
+                font-size: 12px;
                 flex: 1 0 50%;
             }
 
@@ -401,24 +342,18 @@
             }
 
             .info-label {
-                font-size: 13px;
-            }
-
-            .info-value {
                 font-size: 12px;
             }
 
+            .info-value {
+                font-size: 13px;
+            }
+
             table {
-                font-size: 10px;
+                font-size: 11px;
             }
 
             th, td {
-                padding: 6px 3px;
-            }
-
-            /* 在小屏幕上隐藏更多列 */
-            th:nth-child(6), td:nth-child(6),
-            th:nth-child(7), td:nth-child(7) {
-                display: none;
+                padding: 6px 4px;
             }
         }
