@@ -171,6 +171,7 @@ const WEEKDAYS = ['星期日', '星期一', '星期二', '星期三', '星期四
 
 // 干支计算函数
 function getGanZhi(index) {
+    if (index < 0) index = (index % 60 + 60) % 60;
     return HEAVENLY_STEMS[index % 10] + EARTHLY_BRANCHES[index % 12];
 }
 
@@ -190,7 +191,9 @@ function getDayGanZhi(dateObj) {
     const baseDate = new Date(1900, 0, 1);
     const baseIndex = 10;
     const daysDiff = Math.floor((dateObj - baseDate) / (1000 * 60 * 60 * 24));
-    return getGanZhi((baseIndex + daysDiff) % 60);
+    // 处理可能的负数日期差
+    const safeIndex = ((baseIndex + daysDiff) % 60 + 60) % 60;
+    return getGanZhi(safeIndex);
 }
 
 function getHourGanZhi(dayGanZhi, hourIndex) {
@@ -203,7 +206,9 @@ function getHourGanZhi(dayGanZhi, hourIndex) {
 }
 
 function getZodiac(year) {
-    return ZODIAC[(year - 4) % 12];
+    // 处理负年份的情况
+    const adjustedYear = (year - 4) % 12;
+    return ZODIAC[(adjustedYear + 12) % 12];
 }
 
 function getZodiacSign(month, day) {
@@ -218,6 +223,9 @@ function getZodiacSign(month, day) {
 function getChongSha(dayGanZhi) {
     const dayBranch = dayGanZhi[1];
     const dayBranchIndex = EARTHLY_BRANCHES.indexOf(dayBranch);
+    if (dayBranchIndex === -1) {
+        return { chong: '未知', sha: '未知' };
+    }
     const chongIndex = (dayBranchIndex + 6) % 12;
     const chongAnimal = ZODIAC[chongIndex];
     const chongBranch = EARTHLY_BRANCHES[chongIndex];
@@ -229,6 +237,9 @@ function getChongSha(dayGanZhi) {
 function getTaishen(dayGanZhi) {
     const dayBranch = dayGanZhi[1];
     const dayBranchIndex = EARTHLY_BRANCHES.indexOf(dayBranch);
+    if (dayBranchIndex === -1 || dayBranchIndex >= 12) {
+        return { wai: '未知', nei: '未知' };
+    }
     const waiTaishenMap = [
         '占门碓房外东', '占厕厕外东北', '占仓库炉外东南', '占大门床外东',
         '占房床外东南', '占灶炉外东', '占房床外东南', '占厕所外西南',
@@ -245,6 +256,9 @@ function getTaishen(dayGanZhi) {
 function getCaishenPosition(dayGanZhi) {
     const dayGan = dayGanZhi[0];
     const dayGanIndex = HEAVENLY_STEMS.indexOf(dayGan);
+    if (dayGanIndex === -1) {
+        return '未知';
+    }
     return CAISHEN_DIRECTIONS[dayGanIndex % 8];
 }
 
@@ -259,7 +273,10 @@ function getPengzuTaboo(dayGanZhi) {
 function getZhishen(dayGanZhi) {
     const dayBranch = dayGanZhi[1];
     const dayBranchIndex = EARTHLY_BRANCHES.indexOf(dayBranch);
-    return ZHISHEN[dayBranchIndex % 12];
+    if (dayBranchIndex === -1 || dayBranchIndex >= 12) {
+        return '未知';
+    }
+    return ZHISHEN[dayBranchIndex];
 }
 
 function getJianxing(dayGanZhi, monthGanZhi) {
@@ -267,6 +284,9 @@ function getJianxing(dayGanZhi, monthGanZhi) {
     const monthBranch = monthGanZhi[1];
     const dayBranchIndex = EARTHLY_BRANCHES.indexOf(dayBranch);
     const monthBranchIndex = EARTHLY_BRANCHES.indexOf(monthBranch);
+    if (dayBranchIndex === -1 || monthBranchIndex === -1) {
+        return '未知';
+    }
     const offset = (dayBranchIndex - monthBranchIndex + 12) % 12;
     return JIANXING[offset];
 }
@@ -344,12 +364,18 @@ function get28Star(dateObj) {
 }
 
 function solarToLunar(dateObj) {
+    // 注意: 此函数为简化版本,未处理闰月和农历实际天数差异
+    // 生产环境应使用完整的农历转换库或农历数据表
     const baseDate = new Date(1900, 0, 31);
     const daysDiff = Math.floor((dateObj - baseDate) / (1000 * 60 * 60 * 24));
-    const lunarYear = 1900 + Math.floor(daysDiff / 365);
-    const lunarMonth = ((daysDiff % 365) / 29) % 12 + 1;
-    const lunarDay = (daysDiff % 29) + 1;
-    return { year: lunarYear, month: Math.floor(lunarMonth), day: Math.floor(lunarDay), is_leap: false };
+    const lunarYear = 1900 + Math.floor(daysDiff / 365.2422);
+    const daysInYear = daysDiff % 365;
+    // 使用更精确的农历月份估算(考虑农历月平均29.53天)
+    const lunarMonth = Math.floor(daysInYear / 29.53) % 12 + 1;
+    const lunarDay = Math.floor(daysInYear % 29.53) + 1;
+    // 确保日期范围合法
+    const validDay = Math.max(1, Math.min(lunarDay, 30));
+    return { year: lunarYear, month: lunarMonth, day: validDay, is_leap: false };
 }
 
 function calculateYiJi(dateObj) {
@@ -432,20 +458,51 @@ function calculateYiJi(dateObj) {
     }
 
     // 彭祖百忌冲突处理
+    // 根据天干地支查找对应的禁忌活动
+    const pengzuTabooActivities = {
+        '甲': ['开市', '交易'],  // 甲不开仓
+        '乙': ['栽种'],          // 乙不栽植
+        '丙': ['修造'],          // 丙不修灶
+        '丁': ['理发'],          // 丁不剐头
+        '戊': ['开市'],          // 戊不受田
+        '己': ['立券'],          // 己不破券
+        '庚': ['裁衣'],          // 庚不经络
+        '辛': ['烹饪'],          // 辛不合酱
+        '壬': ['开市'],          // 壬不汲水
+        '癸': ['诉讼'],          // 癸不词讼
+        '子': ['占卜'],          // 子不问卜
+        '丑': ['冠带'],          // 丑不冠带
+        '寅': ['祭祀'],          // 寅不祭祀
+        '卯': ['掘井'],          // 卯不穿井
+        '辰': ['哭泣'],          // 辰不哭泣
+        '巳': ['出行'],          // 巳不远行
+        '午': ['修造'],          // 午不芫盖屋
+        '未': ['治病'],          // 未不服药
+        '申': ['安床'],          // 申不安床
+        '酉': ['宴客'],          // 酉不宴客
+        '戌': ['动土'],          // 戌不吃犬
+        '亥': ['嫁娶']           // 亥不嫁娶
+    };
+
     const ganTaboo = dayGanZhi[0];
     const branchTaboo = dayGanZhi[1];
-    if (PENGZU_TABOO[ganTaboo] && PENGZU_TABOO[ganTaboo].includes('开仓')) {
-        jiActivities.add('开市');
-        jiActivities.add('交易');
+
+    // 根据天干添加忌
+    if (pengzuTabooActivities[ganTaboo]) {
+        pengzuTabooActivities[ganTaboo].forEach(activity => {
+            if (ACTIVITIES.includes(activity)) {
+                jiActivities.add(activity);
+            }
+        });
     }
-    if (PENGZU_TABOO[ganTaboo] && PENGZU_TABOO[ganTaboo].includes('安葬')) {
-        jiActivities.add('安葬');
-    }
-    if (PENGZU_TABOO[branchTaboo] && PENGZU_TABOO[branchTaboo].includes('安床')) {
-        jiActivities.add('安床');
-    }
-    if (PENGZU_TABOO[branchTaboo] && PENGZU_TABOO[branchTaboo].includes('出行')) {
-        jiActivities.add('出行');
+
+    // 根据地支添加忌
+    if (pengzuTabooActivities[branchTaboo]) {
+        pengzuTabooActivities[branchTaboo].forEach(activity => {
+            if (ACTIVITIES.includes(activity)) {
+                jiActivities.add(activity);
+            }
+        });
     }
 
     // 排除既在宜又在忌的项
@@ -538,6 +595,9 @@ function getHourJiXiong(hourXingShen) {
 function getHourChongSha(hourGanZhi) {
     const hourBranch = hourGanZhi[1];
     const hourBranchIndex = EARTHLY_BRANCHES.indexOf(hourBranch);
+    if (hourBranchIndex === -1) {
+        return { chong: '未知', sha: '未知' };
+    }
     const chongIndex = (hourBranchIndex + 6) % 12;
     const chongAnimal = ZODIAC[chongIndex];
     const chongBranch = EARTHLY_BRANCHES[chongIndex];
@@ -617,6 +677,7 @@ function getHourInfo(dateObj) {
 }
 
 function getSolarTerms(year) {
+    // 注意: 当前使用2024年的近似节气时间,实际应用中应根据年份计算或查询
     const solarTermBaseDates = [
         [1, 6], [1, 20], [2, 4], [2, 19], [3, 6], [3, 21],
         [4, 5], [4, 20], [5, 6], [5, 21], [6, 6], [6, 21],
@@ -630,19 +691,21 @@ function getSolarTerms(year) {
         '白露', '秋分', '寒露', '霜降', '立冬', '小雪', '大雪', '冬至'
     ];
 
-    const times = ['05:24', '18:44', '19:49', '15:34', '05:56', '12:31',
+    // 使用2024年基准时间,实际应用应根据年份动态计算
+    const baseTimes2024 = ['05:24', '18:44', '19:49', '15:34', '05:56', '12:31',
         '09:27', '16:28', '05:36', '22:37', '15:26', '04:51',
         '10:38', '04:09', '20:29', '12:04', '06:34', '15:52',
         '22:07', '04:54', '18:01', '11:25', '07:22', '00:06'];
 
     const terms = [];
-    for (let i = 0; i < solarTermBaseDates.length; i++) {
+    const arrayLength = Math.min(solarTermBaseDates.length, solarTerms.length, baseTimes2024.length);
+    for (let i = 0; i < arrayLength; i++) {
         const [m, d] = solarTermBaseDates[i];
         terms.push({
             xuhao: i + 1,
             jieqi: solarTerms[i],
             riqi: `${year}年${m}月${d}日`,
-            shijian: times[i % 24]
+            shijian: baseTimes2024[i]
         });
     }
 
@@ -709,28 +772,39 @@ function getMonthlyLuckyDays(year, month, type) {
 }
 
 // UI 函数
-function showTab(tabId) {
+function showTab(tabId, clickedElement) {
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.tab-content');
 
     tabs.forEach(tab => tab.classList.remove('active'));
     contents.forEach(content => content.classList.remove('active'));
 
-    event.target.classList.add('active');
-    document.getElementById(tabId).classList.add('active');
+    if (clickedElement) {
+        clickedElement.classList.add('active');
+    }
+
+    const targetContent = document.getElementById(tabId);
+    if (targetContent) {
+        targetContent.classList.add('active');
+    }
 }
 
 function updateAlmanac() {
-    const dateInput = document.getElementById('dailyDate').value;
-    if (!dateInput) {
+    const dateInput = document.getElementById('dailyDate');
+    if (!dateInput || !dateInput.value) {
         alert('请选择日期');
         return;
     }
 
-    const dateObj = new Date(dateInput);
+    const dateObj = new Date(dateInput.value);
     const almanac = getAlmanac(dateObj);
 
     const resultDiv = document.getElementById('almanacResult');
+    if (!resultDiv) {
+        console.error('almanacResult element not found');
+        return;
+    }
+
     resultDiv.innerHTML = `
                 <div class="info-row">
                     <div class="info-label">公历日期</div>
@@ -800,16 +874,21 @@ function updateAlmanac() {
 }
 
 function updateHourTable() {
-    const dateInput = document.getElementById('hourDate').value;
-    if (!dateInput) {
+    const dateInput = document.getElementById('hourDate');
+    if (!dateInput || !dateInput.value) {
         alert('请选择日期');
         return;
     }
 
-    const dateObj = new Date(dateInput);
+    const dateObj = new Date(dateInput.value);
     const hourInfo = getHourInfo(dateObj);
 
     const tbody = document.getElementById('hourTableBody');
+    if (!tbody) {
+        console.error('hourTableBody element not found');
+        return;
+    }
+
     tbody.innerHTML = hourInfo.map(info => `
                 <tr>
                     <td>${info.shichen}</td>
@@ -825,10 +904,21 @@ function updateHourTable() {
 }
 
 function updateSolarTerms() {
-    const year = parseInt(document.getElementById('yearSelect').value);
+    const yearSelect = document.getElementById('yearSelect');
+    if (!yearSelect || !yearSelect.value) {
+        console.error('yearSelect element not found or no value');
+        return;
+    }
+
+    const year = parseInt(yearSelect.value);
     const solarTerms = getSolarTerms(year);
 
     const tbody = document.getElementById('solarTableBody');
+    if (!tbody) {
+        console.error('solarTableBody element not found');
+        return;
+    }
+
     tbody.innerHTML = solarTerms.map(st => `
                 <tr>
                     <td>${st.xuhao}</td>
@@ -840,13 +930,27 @@ function updateSolarTerms() {
 }
 
 function updateMonthlyLucky() {
-    const year = parseInt(document.getElementById('monthlyYearSelect').value);
-    const month = parseInt(document.getElementById('monthlyMonthSelect').value);
-    const type = document.getElementById('monthlyTypeSelect').value;
+    const yearSelect = document.getElementById('monthlyYearSelect');
+    const monthSelect = document.getElementById('monthlyMonthSelect');
+    const typeSelect = document.getElementById('monthlyTypeSelect');
+
+    if (!yearSelect || !yearSelect.value || !monthSelect || !monthSelect.value || !typeSelect) {
+        console.error('Required elements not found');
+        return;
+    }
+
+    const year = parseInt(yearSelect.value);
+    const month = parseInt(monthSelect.value);
+    const type = typeSelect.value;
 
     const luckyDays = getMonthlyLuckyDays(year, month, type);
 
     const tbody = document.getElementById('monthlyTableBody');
+    if (!tbody) {
+        console.error('monthlyTableBody element not found');
+        return;
+    }
+
     if (luckyDays.length === 0) {
         tbody.innerHTML = '<tr><td colspan="10" style="text-align: center; padding: 20px; color: #999;">该月暂无符合条件的吉日</td></tr>';
     } else {
@@ -872,11 +976,23 @@ function init() {
     const today = new Date();
     const todayStr = today.toISOString().split('T')[0];
 
-    document.getElementById('dailyDate').value = todayStr;
-    document.getElementById('hourDate').value = todayStr;
+    const dailyDateInput = document.getElementById('dailyDate');
+    const hourDateInput = document.getElementById('hourDate');
+
+    if (dailyDateInput) {
+        dailyDateInput.value = todayStr;
+    }
+    if (hourDateInput) {
+        hourDateInput.value = todayStr;
+    }
 
     // 填充年份选择
     const yearSelect = document.getElementById('yearSelect');
+    if (!yearSelect) {
+        console.error('yearSelect element not found');
+        return;
+    }
+
     for (let year = 2024; year <= 2030; year++) {
         const option = document.createElement('option');
         option.value = year;
@@ -889,26 +1005,30 @@ function init() {
 
     // 填充按月吉日的年份选择
     const monthlyYearSelect = document.getElementById('monthlyYearSelect');
-    for (let year = 2024; year <= 2030; year++) {
-        const option = document.createElement('option');
-        option.value = year;
-        option.textContent = year + '年';
-        if (year === today.getFullYear()) {
-            option.selected = true;
+    if (monthlyYearSelect) {
+        for (let year = 2024; year <= 2030; year++) {
+            const option = document.createElement('option');
+            option.value = year;
+            option.textContent = year + '年';
+            if (year === today.getFullYear()) {
+                option.selected = true;
+            }
+            monthlyYearSelect.appendChild(option);
         }
-        monthlyYearSelect.appendChild(option);
     }
 
     // 填充月份选择
     const monthlyMonthSelect = document.getElementById('monthlyMonthSelect');
-    for (let month = 1; month <= 12; month++) {
-        const option = document.createElement('option');
-        option.value = month;
-        option.textContent = month + '月';
-        if (month === today.getMonth() + 1) {
-            option.selected = true;
+    if (monthlyMonthSelect) {
+        for (let month = 1; month <= 12; month++) {
+            const option = document.createElement('option');
+            option.value = month;
+            option.textContent = month + '月';
+            if (month === today.getMonth() + 1) {
+                option.selected = true;
+            }
+            monthlyMonthSelect.appendChild(option);
         }
-        monthlyMonthSelect.appendChild(option);
     }
 
     updateAlmanac();
