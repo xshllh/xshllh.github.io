@@ -20,7 +20,7 @@
             input,
             select {
                 min-height: 44px;
-                min-width: 44px;
+                min-width: 30px;
             }
         }
 
@@ -82,7 +82,7 @@
 
         .tab-content {
             display: none;
-            padding: 15px;
+            padding: 2px;
         }
 
         .tab-content.active {
@@ -110,7 +110,7 @@
             border-radius: 8px;
             font-size: 16px;
             font-family: inherit;
-            min-width: 200px;
+            min-width: 100px;
         }
 
         .date-picker select {
