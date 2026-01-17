@@ -1,42 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo 加密方法</title>
-    <url>/2026/01/08/private/</url>
-    <content><![CDATA[<h1>在标签中添加</h1>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 内部技术分享</span><br><span class="line">password: tech123</span><br><span class="line">abstract: 这是一篇内部技术文档，需授权查看。</span><br><span class="line">message: 请输入访问密钥：</span><br><span class="line">wrong_pass_message: 密钥错误，访问被拒绝。</span><br><span class="line">theme: xray # 为此文章单独使用 xray 主题</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>加密</category>
-      </categories>
-      <tags>
-        <tag>mermaid</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小兰随笔</title>
-    <url>/2026/01/14/%E5%B0%8F%E5%85%B0%E9%9A%8F%E7%AC%94/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被校验，不过您还是能看看解密后的内容。">
-  <script id="hbeData" type="hbeData" data-hmacdigest="121b04ee178a3b32d2a4b644c274f60f392dc4a7a31f6462eec74efc411cb6a0">c2bdc0abc1039c0ca979316f9fff5fc5e6d9b42eefa1ab2924699570d7f195a0bab062b7728d4d5de2097bdf2a5a520857cbe472e64fe7e7b128600a045c08b044b5d742e893485e534f13caab0443f2c8db2ce2ed2ebc994d558a1cc575e2a6b063bd85c783eb400bc336ace36c9fd9e34853a5eb205c90e2420ab10ceaf806df9f2d19a941abed6bb5fab3a22437d5c1db3659f2d750ff86f9876cd719eb6509bc6159b8da3779412a181606aaf2531b7cbfeeef92ea35a4ecb0324d5320dfe9659a4eeba5e796da46ef54f01e439e675e5f02893a65ce74dd61af99a57821b2c93152daf4781877a89595756ac96a527bf0cd68edb9e35cb058686c82071d0ea5fd5dec9ebf7c6ddcaae00a25f80d000722322cf89d9ac921f11092799f985d6a35bb9f6d1b48dce4e74f702476a346b26b7ecb0eaffed6d5471b7d9b21e73e929143fe0f0b6777528beb843ca3610f07bd3c368e5dd9b884f172cddf725f67dcc05ad9d1005f61b8aacaa2d04365d820e512d91ad390520a00f88fe150a7d5b07f89fab85ab546118d4f387c97e54ddd17d86f4fb6052af7a6dc3b40311223a2410575c01e1b933a0140c8a0d7d53037904b8ee7a8f8dab2d09287aa2bcf29735c162a07a70d6632b096637896ac10d5d14e2492f468c3445dc34d429066b7d27b18f50cf1e2126e6d1944efb6469c3df80e37ec19705a179e1d9010620e205fa1ac073b736389965a46dfbe52b60012c0a7f480e4e1e351c23ba62be61b477625bd71614c476814d664ecf8613fadd683d16cad19f8785319a4bf6b7d07db6f22f61e98fdb05db043a10aa4b1718bbeca0a0b91569ade619307c1b43b7afb4300cd4fa18d366fbde9b0240819a2e3fdf245ae8a717a398dd41b7103297311c655f2d63d40c384db07795dffa0ba56bd9d89299b1f49f20616d1cd63fcc6d3db6b63347017649f73e47eaaab6c2863c810428dfc06ae359db483f316a4f8e50c0e14d8ea4a5016af2d07736de60dc67b7d91e487d9a59a86d3bdccb0d1c4f1d6a729832b33d24898adf78e53e437adb6b100a9c3081a58bc5b94cc5671ef</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>随笔</category>
-        <category>小兰</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>小兰</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>markdown</title>
     <url>/2026/01/08/markdown/</url>
     <content><![CDATA[<h1><center>markdown语法全集</center></h1>
@@ -589,6 +553,30 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
+    <title>小兰随笔</title>
+    <url>/2026/01/14/%E5%B0%8F%E5%85%B0%E9%9A%8F%E7%AC%94/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被校验，不过您还是能看看解密后的内容。">
+  <script id="hbeData" type="hbeData" data-hmacdigest="121b04ee178a3b32d2a4b644c274f60f392dc4a7a31f6462eec74efc411cb6a0">c2bdc0abc1039c0ca979316f9fff5fc5e6d9b42eefa1ab2924699570d7f195a0bab062b7728d4d5de2097bdf2a5a520857cbe472e64fe7e7b128600a045c08b044b5d742e893485e534f13caab0443f2c8db2ce2ed2ebc994d558a1cc575e2a6b063bd85c783eb400bc336ace36c9fd9e34853a5eb205c90e2420ab10ceaf806df9f2d19a941abed6bb5fab3a22437d5c1db3659f2d750ff86f9876cd719eb6509bc6159b8da3779412a181606aaf2531b7cbfeeef92ea35a4ecb0324d5320dfe9659a4eeba5e796da46ef54f01e439e675e5f02893a65ce74dd61af99a57821b2c93152daf4781877a89595756ac96a527bf0cd68edb9e35cb058686c82071d0ea5fd5dec9ebf7c6ddcaae00a25f80d000722322cf89d9ac921f11092799f985d6a35bb9f6d1b48dce4e74f702476a346b26b7ecb0eaffed6d5471b7d9b21e73e929143fe0f0b6777528beb843ca3610f07bd3c368e5dd9b884f172cddf725f67dcc05ad9d1005f61b8aacaa2d04365d820e512d91ad390520a00f88fe150a7d5b07f89fab85ab546118d4f387c97e54ddd17d86f4fb6052af7a6dc3b40311223a2410575c01e1b933a0140c8a0d7d53037904b8ee7a8f8dab2d09287aa2bcf29735c162a07a70d6632b096637896ac10d5d14e2492f468c3445dc34d429066b7d27b18f50cf1e2126e6d1944efb6469c3df80e37ec19705a179e1d9010620e205fa1ac073b736389965a46dfbe52b60012c0a7f480e4e1e351c23ba62be61b477625bd71614c476814d664ecf8613fadd683d16cad19f8785319a4bf6b7d07db6f22f61e98fdb05db043a10aa4b1718bbeca0a0b91569ade619307c1b43b7afb4300cd4fa18d366fbde9b0240819a2e3fdf245ae8a717a398dd41b7103297311c655f2d63d40c384db07795dffa0ba56bd9d89299b1f49f20616d1cd63fcc6d3db6b63347017649f73e47eaaab6c2863c810428dfc06ae359db483f316a4f8e50c0e14d8ea4a5016af2d07736de60dc67b7d91e487d9a59a86d3bdccb0d1c4f1d6a729832b33d24898adf78e53e437adb6b100a9c3081a58bc5b94cc5671ef</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>随笔</category>
+        <category>小兰</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>小兰</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>情人节的礼物</title>
     <url>/2026/01/13/qingjie314/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被校验，不过您还是能看看解密后的内容。">
@@ -612,6 +600,18 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
         <tag>礼物</tag>
         <tag>照片</tag>
         <tag>照片墙</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo 加密方法</title>
+    <url>/2026/01/08/private/</url>
+    <content><![CDATA[<h1>在标签中添加</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 内部技术分享</span><br><span class="line">password: tech123</span><br><span class="line">abstract: 这是一篇内部技术文档，需授权查看。</span><br><span class="line">message: 请输入访问密钥：</span><br><span class="line">wrong_pass_message: 密钥错误，访问被拒绝。</span><br><span class="line">theme: xray # 为此文章单独使用 xray 主题</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>加密</category>
+      </categories>
+      <tags>
+        <tag>mermaid</tag>
       </tags>
   </entry>
 </search>
