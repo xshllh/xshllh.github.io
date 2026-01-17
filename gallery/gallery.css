@@ -18,6 +18,49 @@
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
+/* 下拉筛选器容器样式 */
+.select-filter {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+select{
+  background: white;
+  color: #333;
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 14px;
+  min-width: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  flex-shrink: 0; /* 防止被压缩 */
+}
+
+select:hover {
+  border-color: #3498db;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* select 元素聚焦状态 */
+select:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+
 .filter-btn ,.toggle-btn,.album-btn,.to-btn{
   padding: 8px 20px;
   border: 2px solid #3498db;
@@ -102,23 +145,131 @@
   .photo-grid {
     column-count: 2;
   }
+  .select-filter{
+    display: block;
+  }
+  .gallery-filter{
+    display: none;
+  }
+
+  /* 移动端容器优化 */
+  .gallery-container {
+    padding: 10px;
+  }
+
+  .select-filter {
+    padding: 10px;
+    margin-bottom: 15px;
+    gap: 10px;
+  }
+
+  .gallery-search {
+    margin-bottom: 15px;
+    gap: 8px;
+  }
+
+  /* 移动端下拉框优化 */
+  select {
+    font-size: 16px; /* 防止 iOS 自动缩放 */
+    min-width: 120px;
+    padding: 8px 12px;
+  }
+
+  /* 移动端搜索框优化 */
+  .search-input {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .search-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  /* 移动端选项样式增强 */
+  select option {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+
+  /* 移动端触摸反馈 */
+  select option:active {
+    background-color: #2980b9 !important;
+    color: white !important;
+  }
+
+  /* 移动端悬停效果 */
+  select option:hover {
+    background-color: #3498db !important;
+    color: white !important;
+  }
+}
+
+/* 下拉选项样式 */
+select option {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* 下拉选项悬停效果 */
+select option:hover {
+  background-color: #3498db !important;
+  color: white !important;
+}
+
+/* 选中的选项样式 */
+select option:checked {
+  background-color: #3498db !important;
+  color: white !important;
+  font-weight: 600;
 }
 
 @media (max-width: 480px) {
   .photo-grid {
     column-count: 1;
   }
+
+  /* 小屏幕进一步优化 */
+  .gallery-container {
+    padding: 8px;
+  }
+
+  .select-filter {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  select {
+    min-width: 100px;
+    padding: 8px 10px;
+  }
+
+  .search-input {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .photo-item {
+    margin-bottom: 8px;
+  }
 }
 
 .photo-item {
   break-inside: avoid;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
   background: white;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .photo-item {
+    margin-bottom: 10px;
+  }
 }
 
 .photo-item:hover {
