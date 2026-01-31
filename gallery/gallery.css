@@ -232,7 +232,7 @@ select option:checked {
 
   /* 小屏幕进一步优化 */
   .gallery-container {
-    padding: 8px;
+    padding: 0px;
   }
 
   .select-filter {
