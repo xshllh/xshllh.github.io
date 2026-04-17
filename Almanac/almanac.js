@@ -208,11 +208,29 @@
         }
 
         function getZodiacSign(month, day) {
-            for (const item of ZODIAC_SIGNS) {
-                if (month === item.month && day >= item.day) {
-                    return item.sign;
+            // 将月日转换为年内天数
+            function toDayOfYear(m, d) {
+                const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                let days = 0;
+                for (let i = 0; i < m - 1; i++) {
+                    days += daysInMonth[i];
+                }
+                return days + d;
+            }
+            
+            const inputDayOfYear = toDayOfYear(month, day);
+            
+            // 遍历星座，找到第一个边界日期大于输入日期的星座
+            for (let i = 0; i < ZODIAC_SIGNS.length; i++) {
+                const item = ZODIAC_SIGNS[i];
+                const signDayOfYear = toDayOfYear(item.month, item.day);
+                if (signDayOfYear > inputDayOfYear) {
+                    // 返回前一个星座（循环）
+                    return ZODIAC_SIGNS[(i + ZODIAC_SIGNS.length - 1) % ZODIAC_SIGNS.length].sign;
                 }
             }
+            
+            // 如果没找到（理论上不会发生），返回最后一个星座
             return ZODIAC_SIGNS[ZODIAC_SIGNS.length - 1].sign;
         }
 
@@ -222,7 +240,8 @@
             const chongIndex = (dayBranchIndex + 6) % 12;
             const chongAnimal = ZODIAC[chongIndex];
             const chongBranch = EARTHLY_BRANCHES[chongIndex];
-            const shaMap = ['北', '南', '东', '西', '北', '南', '东', '西', '北', '南', '东', '西'];
+            // 煞方映射：子寅申北、丑卯未酉东、辰戌南、巳亥西
+            const shaMap = ['北', '东', '北', '东', '南', '西', '北', '东', '北', '东', '南', '西'];
             const sha = shaMap[dayBranchIndex];
             return { chong: `冲${chongBranch}(${chongAnimal})`, sha: `煞${sha}` };
         }
@@ -585,7 +604,7 @@
                     year: lunar.getYear(),
                     month: lunar.getMonth(),
                     day: lunar.getDay(),
-                    is_leap: lunar.isLeap()
+                    is_leap: false
                 };
             } catch (e) {
                 // 如果库不可用，使用原来的算法（备用方案）
@@ -879,7 +898,8 @@
             const chongIndex = (hourBranchIndex + 6) % 12;
             const chongAnimal = ZODIAC[chongIndex];
             const chongBranch = EARTHLY_BRANCHES[chongIndex];
-            const shaMap = ['南', '北', '西', '东', '南', '北', '西', '东', '南', '北', '西', '东'];
+            // 煞方映射：子丑申酉北、寅卯未戌东、辰巳南、亥东
+            const shaMap = ['北', '北', '东', '东', '南', '南', '北', '东', '北', '北', '东', '东'];
             const sha = shaMap[hourBranchIndex];
             return { chong: `冲${chongBranch}(${chongAnimal})`, sha: `煞${sha}` };
         }
