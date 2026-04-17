@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo 加密方法</title>
+    <url>/2026/01/08/private/</url>
+    <content><![CDATA[<h1>在标签中添加</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 内部技术分享</span><br><span class="line">password: tech123</span><br><span class="line">abstract: 这是一篇内部技术文档，需授权查看。</span><br><span class="line">message: 请输入访问密钥：</span><br><span class="line">wrong_pass_message: 密钥错误，访问被拒绝。</span><br><span class="line">theme: xray # 为此文章单独使用 xray 主题</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>加密</category>
+      </categories>
+      <tags>
+        <tag>mermaid</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>markdown</title>
     <url>/2026/01/08/markdown/</url>
     <content><![CDATA[<h1><center>markdown语法全集</center></h1>
@@ -550,18 +562,6 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
       </categories>
       <tags>
         <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo 加密方法</title>
-    <url>/2026/01/08/private/</url>
-    <content><![CDATA[<h1>在标签中添加</h1>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 内部技术分享</span><br><span class="line">password: tech123</span><br><span class="line">abstract: 这是一篇内部技术文档，需授权查看。</span><br><span class="line">message: 请输入访问密钥：</span><br><span class="line">wrong_pass_message: 密钥错误，访问被拒绝。</span><br><span class="line">theme: xray # 为此文章单独使用 xray 主题</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>加密</category>
-      </categories>
-      <tags>
-        <tag>mermaid</tag>
       </tags>
   </entry>
   <entry>

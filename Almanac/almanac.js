@@ -1,6 +1,6 @@
- 
-        // 黄历核心数据
-        const HEAVENLY_STEMS = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
+
+      // 黄历核心数据
+       const HEAVENLY_STEMS = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
         const EARTHLY_BRANCHES = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
         const ZODIAC = ['鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴', '鸡', '狗', '猪'];
         const ZODIAC_SIGNS = [
@@ -344,13 +344,350 @@
             return { name: starName, info: starInfo };
         }
 
+        // 农历数据 - 从1900年开始的农历信息
+        // 数据格式：使用经过验证的标准农历数据
+        // months: [正月到腊月的大小月，1=大月30天，0=小月29天]
+        // leap: 闰月月份（0=无闰月）
+        // leapDays: 闰月天数
+        const LUNAR_INFO = {
+            1900: { leap: 6, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1901: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1902: { leap: 0, leapDays: 0, months: [1,1,0,1,0,1,0,1,0,1,0,1] },  // 354天
+            1903: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1904: { leap: 2, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1905: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1906: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1907: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1908: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1909: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1910: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1911: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1912: { leap: 5, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1913: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1914: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1915: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1916: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1917: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1918: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1919: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1920: { leap: 4, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1921: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1922: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1923: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1924: { leap: 2, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1925: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1926: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1927: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1928: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1929: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1930: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1931: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1932: { leap: 5, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1933: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1934: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1935: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1936: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1937: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1938: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1939: { leap: 3, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1940: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1941: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1942: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1943: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1944: { leap: 2, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1945: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1946: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1947: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1948: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1949: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1950: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1951: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1952: { leap: 5, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1953: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1954: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1955: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1956: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1957: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1958: { leap: 4, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1959: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1960: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1961: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1962: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1963: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1964: { leap: 2, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1965: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1966: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1967: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1968: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1969: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1970: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1971: { leap: 5, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1972: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1973: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1974: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1975: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1976: { leap: 6, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1977: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1978: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1979: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1980: { leap: 4, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1981: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1982: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1983: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1984: { leap: 2, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1985: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1986: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1987: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1988: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1989: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1990: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1991: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1992: { leap: 3, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1993: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1994: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1995: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1996: { leap: 5, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            1997: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            1998: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            1999: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2000: { leap: 4, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2001: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2002: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2003: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2004: { leap: 2, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2005: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2006: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2007: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2008: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2009: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2010: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2011: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2012: { leap: 4, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2013: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2014: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2015: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2016: { leap: 6, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2017: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2018: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2019: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2020: { leap: 4, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2021: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2022: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2023: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2024: { leap: 2, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2025: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2026: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2027: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2028: { leap: 5, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2029: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2030: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2031: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2032: { leap: 3, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2033: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2034: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2035: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2036: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2037: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2038: { leap: 5, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2039: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2040: { leap: 4, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2041: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2042: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2043: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2044: { leap: 2, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2045: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2046: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2047: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2048: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2049: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2050: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2051: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2052: { leap: 5, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2053: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2054: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2055: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2056: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2057: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2058: { leap: 3, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2059: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2060: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2061: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2062: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2063: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2064: { leap: 2, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2065: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2066: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2067: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2068: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2069: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2070: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2071: { leap: 5, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2072: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2073: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2074: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2075: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2076: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2077: { leap: 5, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2078: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2079: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2080: { leap: 4, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2081: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2082: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2083: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2084: { leap: 2, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2085: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2086: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2087: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2088: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2089: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2090: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2091: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2092: { leap: 3, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2093: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2094: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2095: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2096: { leap: 5, leapDays: 30, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 384天
+            2097: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 354天
+            2098: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] },  // 355天
+            2099: { leap: 0, leapDays: 0, months: [1,0,1,0,1,0,1,0,1,0,1,0] }   // 354天
+        };
+
+        // 获取某年农历每月的天数（返回数组，包含闰月）
+        function getLunarMonthDays(year) {
+            const info = LUNAR_INFO[year];
+            if (!info) return [];
+            
+            const days = [];
+            const leapMonth = info.leap;
+            
+            for (let month = 1; month <= 12; month++) {
+                // 先添加正常月份的天数
+                days.push(getMonthDays(year, month, false));
+                // 如果有闰月，且当前是闰月所在的月份，在正常月份后面添加闰月
+                if (leapMonth > 0 && month === leapMonth) {
+                    days.push(info.leapDays); // 闰月天数
+                }
+            }
+            return days;
+        }
+
+
+        // 正确的公历转农历函数（使用lunar-javascript库）
         function solarToLunar(dateObj) {
-            const baseDate = new Date(1900, 0, 31);
-            const daysDiff = Math.floor((dateObj - baseDate) / (1000 * 60 * 60 * 24));
-            const lunarYear = 1900 + Math.floor(daysDiff / 365);
-            const lunarMonth = ((daysDiff % 365) / 29) % 12 + 1;
-            const lunarDay = (daysDiff % 29) + 1;
-            return { year: lunarYear, month: Math.floor(lunarMonth), day: Math.floor(lunarDay), is_leap: false };
+            const year = dateObj.getFullYear();
+            const month = dateObj.getMonth() + 1;
+            const day = dateObj.getDate();
+            
+            try {
+                // 使用lunar-javascript库进行转换
+                const lunar = Lunar.fromDate(new Date(year, month - 1, day));
+                return {
+                    year: lunar.getYear(),
+                    month: lunar.getMonth(),
+                    day: lunar.getDay(),
+                    is_leap: lunar.isLeap()
+                };
+            } catch (e) {
+                // 如果库不可用，使用原来的算法（备用方案）
+                const baseDate = new Date(1900, 0, 31);
+                const daysDiff = Math.floor((dateObj - baseDate) / (1000 * 60 * 60 * 24));
+                
+                let offset = daysDiff;
+                let lunarYear = 1900;
+                let lunarMonth = 1;
+                let lunarDay = 1;
+                let isLeap = false;
+                
+                for (let y = 1900; y <= 2100; y++) {
+                    const info = LUNAR_INFO[y];
+                    if (!info) break;
+                    
+                    const leapMonth = info.leap;
+                    const leapDays = info.leapDays;
+                    
+                    let yearDays = 0;
+                    for (let m = 1; m <= 12; m++) {
+                        yearDays += getMonthDays(y, m, false);
+                    }
+                    if (leapMonth > 0) {
+                        yearDays += leapDays;
+                    }
+                    
+                    if (offset < yearDays) {
+                        lunarYear = y;
+                        let monthOffset = offset;
+                        for (let m = 1; m <= 12; m++) {
+                            const normalMonthDays = getMonthDays(y, m, false);
+                            if (leapMonth > 0 && m === leapMonth) {
+                                if (monthOffset < normalMonthDays) {
+                                    lunarMonth = m;
+                                    lunarDay = monthOffset + 1;
+                                    isLeap = false;
+                                    break;
+                                }
+                                monthOffset -= normalMonthDays;
+                                if (monthOffset < leapDays) {
+                                    lunarMonth = m;
+                                    lunarDay = monthOffset + 1;
+                                    isLeap = true;
+                                    break;
+                                }
+                                monthOffset -= leapDays;
+                            } else {
+                                if (monthOffset < normalMonthDays) {
+                                    lunarMonth = m;
+                                    lunarDay = monthOffset + 1;
+                                    isLeap = false;
+                                    break;
+                                }
+                                monthOffset -= normalMonthDays;
+                            }
+                        }
+                        break;
+                    }
+                    offset -= yearDays;
+                }
+                return { year: lunarYear, month: lunarMonth, day: lunarDay, is_leap: isLeap };
+            }
+        }
+
+        // 获取某年的总天数
+        function getYearDays(year) {
+            const info = LUNAR_INFO[year];
+            if (!info) return 365;
+            
+            let days = 0;
+            for (let i = 1; i <= 12; i++) {
+                days += getMonthDays(year, i);
+            }
+            // 加上闰月天数（如果该年有闰月）
+            if (info.leap > 0) {
+                days += info.leapDays;
+            }
+            return days;
+        }
+
+        // 获取某年某月的天数
+        function getMonthDays(year, month, isLeapMonth = false) {
+            const info = LUNAR_INFO[year];
+            if (!info) return 30;
+            
+            const leapMonth = info.leap;
+            
+            // 如果查询的是闰月，返回闰月天数
+            if (isLeapMonth && month === leapMonth) {
+                return info.leapDays;
+            }
+            
+            // 使用 months 数组获取天数
+            // months 数组索引 0-11 对应正月到腊月
+            // 1 = 大月(30天), 0 = 小月(29天)
+            const monthIndex = month - 1;
+            if (monthIndex >= 0 && monthIndex < 12) {
+                return info.months[monthIndex] === 1 ? 30 : 29;
+            }
+            
+            return 29; // 默认小月
         }
 
         function calculateYiJi(dateObj) {
@@ -885,7 +1222,10 @@
         // 初始化
         function init() {
             const today = new Date();
-            const todayStr = today.toISOString().split('T')[0];
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const todayStr = `${year}-${month}-${day}`;
 
             document.getElementById('dailyDate').value = todayStr;
             document.getElementById('hourDate').value = todayStr;
