@@ -291,11 +291,12 @@
             return JIANXING[offset];
         }
 
-        function getLuckyUnluckyGods(dayGanZhi, jianxing, zhishen) {
+        function getLuckyUnluckyGods(dayGanZhi, monthGanZhi, jianxing, zhishen) {
             const dayGan = dayGanZhi[0];
             const dayBranch = dayGanZhi[1];
             const dayGanIndex = HEAVENLY_STEMS.indexOf(dayGan);
             const dayBranchIndex = EARTHLY_BRANCHES.indexOf(dayBranch);
+            const monthBranchIndex = EARTHLY_BRANCHES.indexOf(monthGanZhi[1]);
             
             const luckyGods = [];
             const unluckyGods = [];
@@ -314,8 +315,8 @@
                 luckyGods.push('月德');
             }
 
-            // 月破判断
-            const poIndex = (dayBranchIndex + 6) % 12;
+            // 月破判断 - 月破是月建的对冲地支
+            const poIndex = (monthBranchIndex + 6) % 12;
             if (dayBranchIndex === poIndex) {
                 unluckyGods.push('月破');
             }
@@ -334,8 +335,15 @@
                 unluckyGods.push('建除' + jianxing);
             }
 
-            // 天乙贵人
-            if (dayGanIndex % 2 === 0) {
+            // 天乙贵人 - 甲戊并牛羊，乙己鼠猴乡，丙丁猪鸡位，壬癸兔蛇藏，庚辛逢虎马
+            const tianYiMap = {
+                '甲': ['丑', '未'], '戊': ['丑', '未'],
+                '乙': ['子', '申'], '己': ['子', '申'],
+                '丙': ['亥', '酉'], '丁': ['亥', '酉'],
+                '壬': ['卯', '巳'], '癸': ['卯', '巳'],
+                '庚': ['寅', '午'], '辛': ['寅', '午']
+            };
+            if (tianYiMap[dayGan] && tianYiMap[dayGan].includes(dayBranch)) {
                 luckyGods.push('天乙贵人');
             }
 
@@ -715,7 +723,7 @@
             const zhishen = getZhishen(dayGanZhi);
             const jianxing = getJianxing(dayGanZhi, getMonthGanZhi(lunar.year, lunar.month));
             const star = get28Star(dateObj);
-            const godsInfo = getLuckyUnluckyGods(dayGanZhi, jianxing, zhishen);
+            const godsInfo = getLuckyUnluckyGods(dayGanZhi, getMonthGanZhi(lunar.year, lunar.month), jianxing, zhishen);
 
             const yiActivities = new Set();
             const jiActivities = new Set();
@@ -788,21 +796,49 @@
                 }
             }
 
-            // 彭祖百忌冲突处理
+            // 彭祖百忌处理 - 将百忌中的活动添加到忌列表
             const ganTaboo = dayGanZhi[0];
             const branchTaboo = dayGanZhi[1];
-            if (PENGZU_TABOO[ganTaboo] && PENGZU_TABOO[ganTaboo].includes('开仓')) {
-                jiActivities.add('开市');
-                jiActivities.add('交易');
+            
+            // 从彭祖百忌提取忌讳关键词并添加到忌列表
+            const tabooMapping = {
+                '开仓': ['开市', '交易', '出货'],
+                '栽植': ['种植', '农林相关'],
+                '修灶': ['动土', '修造'],
+                '剃头': ['理发'],
+                '破券': ['签订合同', '交易'],
+                '经络': ['纺织', '缝纫'],
+                '合酱': ['制作', '酿造'],
+                '汲水': ['取水', '打水'],
+                '词讼': ['诉讼', '打官司'],
+                '问卜': ['占卜', '算卦'],
+                '冠带': ['穿戴'],
+                '祭祀': ['祭祀', '拜神'],
+                '穿井': ['打井', '挖井'],
+                '哭泣': ['哭泣', '哀悼'],
+                '远行': ['出行', '旅游'],
+                '芟盖': ['装修', '盖房'],
+                '服药': ['吃药', '求医'],
+                '安床': ['安床', '移动床铺'],
+                '宴客': ['请客', '宴会'],
+                '吃犬': ['食用狗肉'],
+                '嫁娶': ['嫁娶', '结婚']
+            };
+            
+            // 检查天干彭祖百忌
+            const ganText = PENGZU_TABOO[ganTaboo] || '';
+            for (const [key, activities] of Object.entries(tabooMapping)) {
+                if (ganText.includes(key)) {
+                    activities.forEach(act => jiActivities.add(act));
+                }
             }
-            if (PENGZU_TABOO[ganTaboo] && PENGZU_TABOO[ganTaboo].includes('安葬')) {
-                jiActivities.add('安葬');
-            }
-            if (PENGZU_TABOO[branchTaboo] && PENGZU_TABOO[branchTaboo].includes('安床')) {
-                jiActivities.add('安床');
-            }
-            if (PENGZU_TABOO[branchTaboo] && PENGZU_TABOO[branchTaboo].includes('出行')) {
-                jiActivities.add('出行');
+            
+            // 检查地支彭祖百忌
+            const branchText = PENGZU_TABOO[branchTaboo] || '';
+            for (const [key, activities] of Object.entries(tabooMapping)) {
+                if (branchText.includes(key)) {
+                    activities.forEach(act => jiActivities.add(act));
+                }
             }
 
             // 排除既在宜又在忌的项
@@ -911,7 +947,7 @@
             const zhishen = getZhishen(dayGanZhi);
             const jianxing = getJianxing(dayGanZhi, monthGanZhi);
             const star = get28Star(dateObj);
-            const godsInfo = getLuckyUnluckyGods(dayGanZhi, jianxing, zhishen);
+            const godsInfo = getLuckyUnluckyGods(dayGanZhi, monthGanZhi, jianxing, zhishen);
             const chongSha = getChongSha(dayGanZhi);
             const taishen = getTaishen(dayGanZhi);
             const caishen = getCaishenPosition(dayGanZhi);
@@ -1021,7 +1057,7 @@
                 const yiJi = calculateYiJi(dateObj);
                 const zhishen = getZhishen(dayGanZhi);
                 const jianxing = getJianxing(dayGanZhi, monthGanZhi);
-                const godsInfo = getLuckyUnluckyGods(dayGanZhi, jianxing, zhishen);
+                const godsInfo = getLuckyUnluckyGods(dayGanZhi, monthGanZhi, jianxing, zhishen);
                 const chongSha = getChongSha(dayGanZhi);
 
                 // 检查该日是否包含目标活动
