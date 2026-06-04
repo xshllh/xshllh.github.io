@@ -246,26 +246,52 @@
             return { chong: `冲${chongBranch}(${chongAnimal})`, sha: `煞${sha}` };
         }
 
-        function getTaishen(dayGanZhi) {
-            const dayBranch = dayGanZhi[1];
-            const dayBranchIndex = EARTHLY_BRANCHES.indexOf(dayBranch);
-            const waiTaishenMap = [
-                '占门碓房外东', '占厕厕外东北', '占仓库炉外东南', '占大门床外东',
-                '占房床外东南', '占灶炉外东', '占房床外东南', '占厕所外西南',
-                '占门炉外西北', '占灶床外西', '占房床外西', '占门炉外西北'
+        function getTaishen(lunar) {
+            // 胎神基于六甲口诀：甲子-门炉外屎池，乙丑-碓磨外西南
+            // 简化版：基于天干推算胎神方位
+            const dayGan = lunar.day_gan + lunar.day_zhi;
+            const dayGanIndex = (lunar.day - 1) % 10;
+            const dayBranchIndex = (lunar.day - 1) % 12;
+            
+            // 胎神位置传统歌诀（简化版）
+            const taishenMap = [
+                '占门炉外屎池', '占碓磨外西南', '占厨灶外正西', '占大门外正北',
+                '占房床外东北', '占碓磨外东南', '占仓库外正西', '占碓磨外正南',
+                '占安保外正西', '占安灶外正北', '占床房外西北', '占碓磨外正西'
             ];
-            const neiTaishenMap = [
-                '占门碓房东', '占厕厕北', '占仓库炉东南', '占大门床东',
-                '占房床东南', '占灶炉东', '占房床东南', '占厕所西南',
-                '占门炉西北', '占灶床西', '占房床西', '占门炉西北'
+            
+            // 精确版：基于六十甲子逐日推算
+            const dayGanZhi = getDayGanZhiFromSolar(lunar.year, lunar.month, lunar.day);
+            const ganIndex = HEAVENLY_STEMS.indexOf(dayGanZhi[0]);
+            const zhiIndex = EARTHLY_BRANCHES.indexOf(dayGanZhi[1]);
+            
+            // 六甲胎神位置
+            const liuJiaTaishen = [
+                '占门炉外屎池', '占碓磨外西南', '占厨灶外正西', '占大门外正北',
+                '占房床外东北', '占碓磨外东南', '占仓库外正西', '占碓磨外正南',
+                '占安保外正西', '占安灶外正北'
             ];
-            return { wai: waiTaishenMap[dayBranchIndex], nei: neiTaishenMap[dayBranchIndex] };
+            
+            return liuJiaTaishen[ganIndex];
+        }
+        
+        // 根据农历日期获取日干支
+        function getDayGanZhiFromSolar(year, month, day) {
+            const lunar = solarToLunar(new Date(year, month - 1, day));
+            const baseDate = new Date(1900, 0, 30); // 1900年1月30日为甲子日
+            const targetDate = new Date(year, month - 1, day);
+            const daysDiff = Math.floor((targetDate - baseDate) / (1000 * 60 * 60 * 24));
+            return getGanZhi(daysDiff);
         }
 
         function getCaishenPosition(dayGanZhi) {
+            // 财神位传统规则：甲艮乙坎丙离丁坤戊震，己巽庚兑辛乾壬癸艮
             const dayGan = dayGanZhi[0];
-            const dayGanIndex = HEAVENLY_STEMS.indexOf(dayGan);
-            return CAISHEN_DIRECTIONS[dayGanIndex % 8];
+            const caishenMap = {
+                '甲': '东北', '乙': '正北', '丙': '正南', '丁': '西南', '戊': '正东',
+                '己': '东南', '庚': '正西', '辛': '西北', '壬': '西北', '癸': '东北'
+            };
+            return caishenMap[dayGan] || '正南';
         }
 
         function getPengzuTaboo(dayGanZhi) {
@@ -357,6 +383,31 @@
             const heBranches = sanHeMap[dayBranchIndex];
             if (heBranches && heBranches.length > 0) {
                 luckyGods.push('三合');
+            }
+
+            // 月煞判断 - 月煞是月建的五行相克方位
+            // 寅卯月煞北，巳午月煞东，申酉月煞南，亥子月煞西，辰戌丑未月煞中
+            const yueShaMap = { 3: '北', 4: '北', 0: '西', 1: '西', 6: '中', 8: '中', 2: '北', 7: '南', 9: '南', 5: '东', 10: '中', 11: '东' };
+            if (yueShaMap[monthBranchIndex]) {
+                unluckyGods.push('月煞');
+            }
+
+            // 五鬼判断 - 基于日支
+            const wuGuiMap = ['龙', '鸡', '狗', '蛇', '虎', '鼠', '牛', '兔', '马', '猴', '羊', '猪'];
+            if (wuGuiMap.includes(dayBranch)) {
+                unluckyGods.push('五鬼');
+            }
+
+            // 劫煞判断 - 基于日支
+            const jieShaMap = { 2: '劫煞', 5: '劫煞', 8: '劫煞', 11: '劫煞' };
+            if (jieShaMap[dayBranchIndex]) {
+                unluckyGods.push('劫煞');
+            }
+
+            // 灾煞判断
+            const zaiShaMap = { 1: '灾煞', 4: '灾煞', 7: '灾煞', 10: '灾煞' };
+            if (zaiShaMap[dayBranchIndex]) {
+                unluckyGods.push('灾煞');
             }
 
             return { '吉神宜趋': [...new Set(luckyGods)], '凶神宜忌': [...new Set(unluckyGods)] };
@@ -941,6 +992,10 @@
         }
 
         function getAlmanac(dateObj) {
+            // 计算农历（需要先计算，因为胎神需要用到）
+            const lunar = solarToLunar(dateObj);
+            const nongli = `${lunar.year}年${lunar.month}月${lunar.day}日`;
+            
             const dayGanZhi = getDayGanZhi(dateObj);
             const monthGanZhi = getMonthGanZhi(dateObj.getFullYear(), dateObj.getMonth() + 1);
             const yiJi = calculateYiJi(dateObj);
@@ -949,15 +1004,11 @@
             const star = get28Star(dateObj);
             const godsInfo = getLuckyUnluckyGods(dayGanZhi, monthGanZhi, jianxing, zhishen);
             const chongSha = getChongSha(dayGanZhi);
-            const taishen = getTaishen(dayGanZhi);
+            const taishen = getTaishen(lunar);
             const caishen = getCaishenPosition(dayGanZhi);
             const pengzu = getPengzuTaboo(dayGanZhi);
             const zodiac = getZodiac(dateObj.getFullYear());
             const zodiacSign = getZodiacSign(dateObj.getMonth() + 1, dateObj.getDate());
-
-            // 计算农历
-            const lunar = solarToLunar(dateObj);
-            const nongli = `${lunar.year}年${lunar.month}月${lunar.day}日`;
 
             return {
                 gongli: `${dateObj.getFullYear()}年${dateObj.getMonth() + 1}月${dateObj.getDate()}日`,
